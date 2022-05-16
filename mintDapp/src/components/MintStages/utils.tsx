@@ -3,7 +3,7 @@ import { useContract } from "../../hooks/useContract";
 import { useWeb3React } from "@web3-react/core";
 
 
-enum MintState {
+enum MintStage {
     INITIATED,
     WHITEMINT,
     PUBLICMINT,
@@ -14,17 +14,17 @@ enum MintState {
 
 export  const useMintStages = () => {
     
-    const {active, account} = useWeb3React()
+    const {active, account, chainId} = useWeb3React()
     const{ contract}: any = useContract()
     const [isPaused, setIsPaused] = useState<boolean>(false)
-    const [stage, setStage] = useState<MintState>(MintState.INITIATED)
+    const [stage, setStage] = useState<MintStage>(MintStage.INITIATED)
     
 
     const getStages = async() => {
        
         // console.log(await contract.methods.isPaused().call(), "PAUSED")
         setIsPaused(await contract.isPaused())
-        // console.log(await contract.stage().call(), "CONTRACT STAGE", MintState.INITIATED, "MINTSTATE")
+        // console.log(await contract.stage().call(), "CONTRACT STAGE", MintStage.INITIATED, "MINTSTAgE")
         
         setStage(parseInt(await contract.stage()))
         // setStage(0)
@@ -36,8 +36,12 @@ export  const useMintStages = () => {
         if(active && contract){
             getStages()
         }        
+        else{
+            setStage(1)
+            setIsPaused(true)
+        }
     
-    },[active, isPaused, stage, account])
+    },[active, isPaused, stage, account, chainId])
 
     return {contract, isPaused, stage, account, setStage}
 

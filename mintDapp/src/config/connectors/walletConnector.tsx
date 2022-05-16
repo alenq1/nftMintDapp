@@ -25,10 +25,18 @@ import { useWeb3React, UnsupportedChainIdError } from '@web3-react/core'
 
 
 function WalletConnector({ children }: any) {
-  const { active, error, activate, deactivate, account } = useWeb3React()
+  const { active, error, activate, deactivate, account, chainId, library } = useWeb3React()
   const [loading, setLoading] = useState(true)
   const [chainID, setChainId] = useState(0);
   const isUnSupportedChain = error instanceof UnsupportedChainIdError
+
+  console.log( active, "WT CNT ACTIVE")
+  console.log(error, "WT CNT ERROR")
+  console.log(activate, "WT CNT ACTIVATE")
+  console.log(deactivate, "WT CNT DEACTIVE")
+  console.log(account,"WT CNT ACCOUNT")
+  console.log(chainId, "WT CNT CHAINID")
+  console.log(library,"WT CNT LIBARY")
 
   const prevConnected = localStorage.getItem("prevconnected")
   console.log(prevConnected, "PREV CONNECTED")
@@ -75,7 +83,7 @@ function WalletConnector({ children }: any) {
       setLoading(false)
     }
     
-  }, [activate, account])
+  }, [activate, account, chainId])
   if (loading) {
     return <>Loading</>  
   }

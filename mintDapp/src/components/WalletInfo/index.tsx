@@ -11,9 +11,9 @@ import {ethers} from "ethers"
 
 const WalletInfo = () => {
 
-  const {active, activate, deactivate, account, error, library} = useWeb3React()
+  const {active, activate, deactivate, account, error, library, chainId} = useWeb3React()
 
-  // console.log(library, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+  console.log(library, "LIBRARY EN WALLET INFO")
   const isUnSupportedChain = error instanceof UnsupportedChainIdError
   const [chainID, setChainId] = useState(0);
   const [balance, setBalance] = useState<any>(0)
@@ -21,19 +21,19 @@ const WalletInfo = () => {
 
   useEffect(() => {
     
-    if(account){
+    if(active && account){
       setAddress(`${account?.substr(0, 6)}...${account?.substr(-4)}`)
       getBalance()
     }
         
-  },[active, account])
+  },[active, account, chainId])
 
   const getBalance = useCallback (async() => {
       const rawBalance = await library.getBalance(account)      
       const cleanBalance = parseFloat(ethers.utils.formatEther(rawBalance)).toFixed(4)
       // console.log("dfasdfsd", typeof(cleanBalance))
       setBalance(cleanBalance)
-  }, [account])
+  }, [account, chainId])
 
   const connect = async() => {
     

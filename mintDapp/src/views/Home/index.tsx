@@ -22,26 +22,31 @@ import { useContract } from "../../hooks/useContract";
 
 const Home = () => {
 
-
+  const {active, library, chainId} = useWeb3React()
   const [name, setName] = useState<any>("")
   const{ contract}: any = useContract()
- 
+  console.log(contract, "QUE ES CONTRACT")
+  console.log(contract === null , "CONTRAVCT ES BNULLLLLLLLLL?????")
 
   const getMintType = async() => {
 
-    const name: any = await contract.name()
-    setName(name)
+    if(contract !== null){
+      const name: any = await contract.name()
+      setName(name)
+    }
+    
   }
   
 
+
   useEffect(() => {
-    if(typeof(contract) === "object"){
+    if(contract !== null && active){
       getMintType()
     }
     console.log("CONTRACT",contract)
   
     
-  }, [contract]);
+  }, [active,contract, chainId]);
 
 
   return (
