@@ -24,7 +24,7 @@ const  AdminForm = (props: any) => {
         withdraw        
     } = props
 
-    console.log("ADMIN FOOOOOOOOOORRRRRRRRRRMMMMMMMMMM CONTRACT DETAILS", contractDetails)
+    // console.log("ADMIN FOOOOOOOOOORRRRRRRRRRMMMMMMMMMM CONTRACT DETAILS", contractDetails)
 
     const {
         uri, 
@@ -38,14 +38,14 @@ const  AdminForm = (props: any) => {
         mintPriceWhitelist
     } = contractDetails
 
-    console.log("CONTRACT DETAILS", contractDetails)
+    // console.log("CONTRACT DETAILS", contractDetails)
 
     const uriAction = contractDetails.stage === 0 ? "setBaseUri" : "revealURI"
 
-    console.log(
-        "%cESTE ES ESTADO ",
-        "background: green; color: white; display: block;", contractDetails.stage
-      );
+    // console.log(
+    //     "%cESTE ES ESTADO ",
+    //     "background: green; color: white; display: block;", contractDetails.stage
+    //   );
   return (
     <Box component="form" 
         sx={StyledAdminForm}
@@ -183,7 +183,8 @@ const  AdminForm = (props: any) => {
                 />
         </Box>
         <Button text={"Withdraw"} action={() =>withdraw()}
-    disabled={contractDetails.stage !== "4" || isPaused}    />        
+                disabled={contractDetails.stage !== 4 || isPaused}    
+        />        
     </Box>
   );
 }

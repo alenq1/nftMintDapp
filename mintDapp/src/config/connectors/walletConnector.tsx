@@ -30,16 +30,19 @@ function WalletConnector({ children }: any) {
   const [chainID, setChainId] = useState(0);
   const isUnSupportedChain = error instanceof UnsupportedChainIdError
 
-  console.log( active, "WT CNT ACTIVE")
-  console.log(error, "WT CNT ERROR")
-  console.log(activate, "WT CNT ACTIVATE")
-  console.log(deactivate, "WT CNT DEACTIVE")
-  console.log(account,"WT CNT ACCOUNT")
-  console.log(chainId, "WT CNT CHAINID")
-  console.log(library,"WT CNT LIBARY")
+  // console.log( active, "WT CNT ACTIVE")
+  // console.log(error, "WT CNT ERROR")
+  // console.log(activate, "WT CNT ACTIVATE")
+  // console.log(deactivate, "WT CNT DEACTIVE")
+  // console.log(account,"WT CNT ACCOUNT")
+  // console.log(chainId, "WT CNT CHAINID")
+  // console.log(library,"WT CNT LIBARY")
 
-  const prevConnected = localStorage.getItem("prevconnected")
+  const prevConnected = localStorage.getItem("isWalletConnected")
+  
   console.log(prevConnected, "PREV CONNECTED")
+
+
   // const connect = () => {
   //   connector
   //     .isAuthorized()
@@ -67,8 +70,8 @@ function WalletConnector({ children }: any) {
       try {
         await activate(connector)
         setLoading(false)
-      } catch (ex) {
-        console.log(ex)
+      } catch (error) {
+        console.log(error, "ERRROR EN CONECTAR AL RERESH")
       }
     
   }
@@ -78,12 +81,11 @@ function WalletConnector({ children }: any) {
       connectWalletOnPageLoad()
     }   
     else{
-      
-
-      setLoading(false)
+            setLoading(false)
     }
     
   }, [activate, account, chainId])
+  
   if (loading) {
     return <>Loading</>  
   }

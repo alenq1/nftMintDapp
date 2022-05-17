@@ -17,7 +17,7 @@ interface IMintNumbers {
 
 export  const useMintState = () => {
     
-    const {active, account, library} = useWeb3React()
+    const {active, account, library, chainId} = useWeb3React()
     const{ contract}: any = useContract()
     const [mintNumbers, setMintNumbers] = useState<IMintNumbers>({
         minted: 0,
@@ -67,18 +67,23 @@ export  const useMintState = () => {
 
     useEffect(() => {
         if(active && contract){
-            getMintState()
+            // getMintState()
             getMintNumbers()
-            if(contractState === 0){
+            // if(contractState === 1){
+            //     checkWhiteListed()
+            // }                 
+        }        
+        console.log(mintNumbers, "mintNumbers")
+    },[active, contract, chainId])
+
+    useEffect(() => {
+        if(active && contract){
+            getMintState()            
+            if(contractState === 1){
                 checkWhiteListed()
             }                 
         }        
-        console.log(mintNumbers, "mintNumbers")
-    },[active, contract, contractState])
-
-    // useEffect(() => {
-           
-    // },[active, contractState])
+    },[contractState, mintNumbers.minted])
 
 
     const mint = async() => {
@@ -92,17 +97,20 @@ export  const useMintState = () => {
                 enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
                 console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
                 tx.wait().then((result: any) => {
-                    // setContractDetails((state: any) => ({
-                    //     ...state,
-                    //     [getContractField]: checked
-                    // }))
-                    enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
+                    setMintNumbers((state: any) => ({
+                        ...state,
+                        minted: quantity + state.minted
+                    }))
+                    enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash} `, {variant: 'success'})            
+                    enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
                     console.log(result, "RESULT MINTT")
                 })   
             } 
             catch (error) {
-                console.log(`ERROR WHITE MINT`, error)
-                enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
+                const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("data"))
+                console.log(`ERROR WHITE MINT`, formatError)
+                console.log(library.provider, "LIBRARYYYY ERRRRRORRRR")
+                enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})
             }
 
             
@@ -122,21 +130,28 @@ export  const useMintState = () => {
             // .on("error", (error: any) => console.log(error))    
             // .catch((error:any) => console.log(error))
             try {
-                const tx =  await contract?.publicMint(quantity, {value: quantity * mintNumbers.mintPricePublic})
+                const valueToSend = (quantity * mintNumbers.mintPricePublic).toString()
+                const tx =  await contract?.publicMint(quantity, {value: ethers.utils.parseEther(valueToSend)})
+                // const tx =  await contract?.publicMint(quantity, {value: quantity * mintNumbers.mintPricePublic})
                 enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
                 console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
                 tx.wait().then((result: any) => {
-                    // setContractDetails((state: any) => ({
-                    //     ...state,
-                    //     [getContractField]: checked
-                    // }))
-                    enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
+                    setMintNumbers((state: any) => ({
+                        ...state,
+                        minted: quantity + state.minted
+                    }))
+                    enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash}`, {variant: 'success'})                    
+                    enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
                     console.log(result, "RESULT MINTT")
                 })   
             } 
             catch (error) {
                 console.log(`ERROR PUBLIC MINT`, error.message)
-                enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
+                const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("data"))
+                console.log(`ERROR WHITE MINT`, formatError)
+                console.log(library.provider, "LIBRARYYYY ERRRRRORRRR")
+                enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})
+                // enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
             }
         }
         else {

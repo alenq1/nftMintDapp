@@ -35,14 +35,14 @@ export const useGalleryState = () => {
         setValue(newValue);
     };
 
-    const getGalleryInfo = useCallback (async() => {
+    const getGalleryInfo = async() => {
         if(contract !== undefined && gallery.length === 0){
            
               
         setLoading('loading')
         
-        const totalSupply: any = await contract?.methods.totalSupply().call()
-        const balanceOf: any = await contract?.methods.balanceOf(account).call()
+        const totalSupply: any = await contract?.totalSupply()
+        const balanceOf: any = await contract?.balanceOf(account)
         const tempArray: any[] = Array.from({length: totalSupply}, (_, i) => i + 1)
         // let secondArray: any[] = []
         // let tempArray: any[] = []
@@ -65,14 +65,18 @@ export const useGalleryState = () => {
         //     })
         // }
         
-        const secondArray = await Promise.all (tempArray.map(async (index)=>{     
-            const ownerOf: any = await contract?.methods.ownerOf(index).call()
-            const tokenURI = await contract?.methods.tokenURI(index).call()
+        const secondArray = await Promise.allSettled (tempArray.map(async (index)=>{     
+            const ownerOf: any = await contract?.ownerOf(index)
+            const tokenURI = await contract?.tokenURI(index)
             let result = {data: ""}
-            axios.get(tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/'))
+            // console.log(tokenURI, "TOOKEEEEEENN URIIII")
+            // const formatURI = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/').replace(".json", "").slice(0,tokenURI <9 ? -1 : -2)
+            const formatURI = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/')
+            // console.log(formatURI,"FORMATED URI")
+            axios.get(formatURI)
             .then((response)=>{
                 response.data.owner = ownerOf
-                // console.log("RESPOINSE A PEGAR",tokenURI, response.data)
+                console.log("RESPOINSE A PEGAR",tokenURI, response.data)
                 // setGallery( (state: any) => state.concat(response.data))
                 // result.push(response.data)
                 result.data = response.data
@@ -94,7 +98,7 @@ export const useGalleryState = () => {
         
         
     } 
-    }, [contract])
+    }
 
 
     const showOnlyOwned = useCallback (() => {
@@ -125,7 +129,7 @@ export const useGalleryState = () => {
         getGalleryInfo()
         console.log("DESPUES DE GALLERY INFO", gallery)            
         
-    }, [getGalleryInfo])
+    }, [contract])
 
     useEffect(() => {
         if(!defaultView){

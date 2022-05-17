@@ -31,6 +31,7 @@ const MintSection = () => {
   const allowToMint = contractState === 1 || contractState ===2 
   const defaultMintImage = "/"
 
+
   // console.log(ethers.BigNumber.from('hello world'), "LIBRARRRRRRRYYYYYYY UTILSSSSSSSSS")
   console.log(mintNumbers, "LIBRARRRRRRRYYYYYYY UTILSSSSSSSSS", contractState, "CONTRACT STATE")
 
@@ -75,7 +76,7 @@ const MintSection = () => {
         {
           contract &&
             allowToMint &&
-              <h3>
+              <strong>
                 `Total Cost: ${
                   contractState === 1 ?
                     // quantity* ethers.BigNumber.from(mintNumbers.mintPriceWhite)
@@ -88,7 +89,7 @@ const MintSection = () => {
                   :
                   0
                 } ${'ETH'}`  
-              </h3>        
+              </strong>        
         }
       </Typography>
     </CardContent>

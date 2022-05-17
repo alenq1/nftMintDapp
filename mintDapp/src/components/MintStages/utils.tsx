@@ -23,10 +23,12 @@ export  const useMintStages = () => {
     const getStages = async() => {
        
         // console.log(await contract.methods.isPaused().call(), "PAUSED")
-        setIsPaused(await contract.isPaused())
+        const checkIsPaused = await contract.isPaused()
+        setIsPaused(checkIsPaused)
         // console.log(await contract.stage().call(), "CONTRACT STAGE", MintStage.INITIATED, "MINTSTAgE")
         
-        setStage(parseInt(await contract.stage()))
+        const checkStage = await contract.stage()
+        setStage(checkStage)
         // setStage(0)
         
     }
@@ -37,11 +39,13 @@ export  const useMintStages = () => {
             getStages()
         }        
         else{
-            setStage(1)
+            setStage(0)
             setIsPaused(true)
         }
     
     },[active, isPaused, stage, account, chainId])
+
+    console.log(stage, "STAGE REFRESHH")
 
     return {contract, isPaused, stage, account, setStage}
 

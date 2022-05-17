@@ -101,7 +101,9 @@ export default function MintStages({isAdmin}: any) {
     </Stack>
     {
       isAdmin &&
-      <Button text={"Go to Next Stage"} action={() =>nextStage()}/>
+      <Button text={"Go to Next Stage"} action={() =>nextStage()}
+        disabled={stage >= 4 || isPaused}
+      />
     }
     
     </>

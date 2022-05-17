@@ -9,10 +9,11 @@ import {ethers} from "ethers"
 export const useAdminCollectionState = () => {
 
     
-    const {active, account, library} = useWeb3React()
+    const {active, account, library, chainId} = useWeb3React()
     const {contract} = useContract()    
     const { enqueueSnackbar } = useSnackbar();
-    console.log(contract, "CONTRACT ADMINNNNNNNNNNNNNNNNNNNNNNNNNnnn")
+
+    // console.log(contract, "CONTRACT ADMINNNNNNNNNNNNNNNNNNNNNNNNNnnn")
 
     const [loading, setLoading] = useState(false)
     const [contractDetails, setContractDetails] = useState<any>({})
@@ -44,7 +45,7 @@ export const useAdminCollectionState = () => {
 
             const contractRawBalance = await library.getBalance(contract.address)
             const contractCleanBalance = parseFloat(ethers.utils.formatEther(contractRawBalance))
-            console.log(contractCleanBalance, "BALANCCCCCCCE LIMIPIIIIIIIIIIIOOOOOOOOOOOO")
+            // console.log(contractCleanBalance, "BALANCCCCCCCE LIMIPIIIIIIIIIIIOOOOOOOOOOOO")
             setContractBalance(contractCleanBalance)
             // await library.getBalance(
             //     contract.address
@@ -57,7 +58,7 @@ export const useAdminCollectionState = () => {
     }
 
     // console.log(contract.address, "CONTRACT ADMINNNNNNNNNNNNNNNNNNNNNNNNNnnn")
-    getContractBalance().then(response => console.log(response, "CONTRACT BALANCE"))
+    // getContractBalance().then(response => console.log(response, "CONTRACT BALANCE"))
 
     const getContractDetails = useCallback (async(contractA) => {
         
@@ -167,11 +168,19 @@ export const useAdminCollectionState = () => {
     };
 
     const withdraw = async () =>{
-        await contract.withdraw().send({ from: account})    
-        .on("transactionHash", (result: any) => console.log("transactionHash",result))
-        .on("receipt", (result:any) => console.log("resultTx",result.status,"txnHash", result.transactionHash ))
-        .on("error", (error: any) => alert(error.message))
-        .catch((error:any) => alert(error.message))
+        try {
+            const tx = await contract.withdraw()
+            enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
+            console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+            tx.wait().then((result: any) => {
+                setContractBalance(0)
+                enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
+                console.log(result, "RESULT WWWWWWWWWWWAAAAAAITTTT")
+            })    
+        } 
+        catch (error) {
+            enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
+        }        
     }
 
     // const nextStage = async () =>{
@@ -345,7 +354,7 @@ export const useAdminCollectionState = () => {
             // console.log( await contractDetailsTemp, "CONTRACT DETAILS TTTTTTTTTTTEEEEEEEEEEEEEEMMMMMMMMMMMPPPPPPPPPPP")    
             contractDetailsTemp.then(response => {
                 setContractDetails(response)
-                console.log("CONTRACT DETAILS LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", response)
+                // console.log("CONTRACT DETAILS LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", response)
             })
             
         }
@@ -358,13 +367,13 @@ export const useAdminCollectionState = () => {
 
         
         
-    }, [getContractDetails, fields])
+    }, [getContractDetails, chainId, contract])
 
     // useEffect(() => {
         
     // },[fields])
     
-    console.log(contractDetails, "DDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEETAILASSSSSSSSSSSs")
+    // console.log(contractDetails, "DDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEETAILASSSSSSSSSSSs")
 
     
     const formattedContDetail = [
@@ -450,6 +459,9 @@ export const useAdminCollectionState = () => {
         }        
         
     ]
+
+
+    // console.log(formattedContDetail, "FORMATTTED CONTRACTRT")
 
     return {
         library,

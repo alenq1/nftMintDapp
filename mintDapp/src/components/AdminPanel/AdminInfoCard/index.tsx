@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const AdminInfoCard = ({data, balance, library}: any) => {
 
-  // console.log(data,  "ZZZZZZZZZZZZZZZZZZ")
+  // console.log(data,  "DATA ADMIN INFO CARD")
   // console.log(balance,  "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
     
   return (
