@@ -34,33 +34,23 @@ export const useAdminCollectionState = () => {
         isPaused: false,
         state: 0,        
     });
-    // base uri ipfs://QmPvQG4PuJHdBH7m4cQ2APFYBzW3ZxamkjRJXHpNgzjG1t/
     
-    // const formattedAddress = library.utils.toChecksumAddress(account)
     const formattedAddress = account
 
-    
     const getContractBalance = async() => {
         if(contract){
 
             const contractRawBalance = await library.getBalance(contract.address)
             const contractCleanBalance = parseFloat(ethers.utils.formatEther(contractRawBalance))
             // console.log(contractCleanBalance, "BALANCCCCCCCE LIMIPIIIIIIIIIIIOOOOOOOOOOOO")
-            setContractBalance(contractCleanBalance)
-            // await library.getBalance(
-            //     contract.address
-            // ).then((response:any) => {
-            //     setContracBalance(parseFloat(ethers.utils.formatEther(response)))
-            //     console.log(response, "response contract balance")
-            // })
+            setContractBalance(contractCleanBalance)            
         }
         return 0
     }
 
     // console.log(contract.address, "CONTRACT ADMINNNNNNNNNNNNNNNNNNNNNNNNNnnn")
-    // getContractBalance().then(response => console.log(response, "CONTRACT BALANCE"))
-
-    const getContractDetails = useCallback (async(contractA) => {
+    
+    const getContractDetails = useCallback (async(contractA: any) => {
         
             const [
                 uri,
@@ -117,15 +107,6 @@ export const useAdminCollectionState = () => {
         
     }, [])
 
-
-    // const showOnlyOwned = useCallback (() => {
-    //     console.log("showOnlyOwned", ownedNft)        
-    //         setOwnedNft(gallery.filter( (item) => item.owner === account))    
-    // },[gallery, ownedNft])
-    
-    // console.log("SI ME ESTa LLEGANDO ESTA MIERDa BIEN?????", account)
-
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
         const {name, value} = event.target
@@ -144,20 +125,20 @@ export const useAdminCollectionState = () => {
 
         const {name, checked} = event.target
 
-        console.log("%cESTA ES EL SWITCH", "color: white; background-color: #26bfa5;", name)
+        // console.log("%cESTA ES EL SWITCH", "color: white; background-color: #26bfa5;", name)
         const getContractField = name === 'setPause' ? 'isPaused' : 'burnEnabled'
 
         try {
             const tx = await contract[name]()  
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+            console.log(tx,"TX" )
             tx.wait().then((result: any) => {
                 setContractDetails((state: any) => ({
                     ...state,
                     [getContractField]: checked
                 }))
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                console.log(result, "RESULT WWWWWWWWWWWAAAAAAITTTT")
+                console.log(result, "RESULT")
             })    
         } 
         catch (error) {
@@ -171,11 +152,11 @@ export const useAdminCollectionState = () => {
         try {
             const tx = await contract.withdraw()
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+            console.log(tx,"TX" )
             tx.wait().then((result: any) => {
                 setContractBalance(0)
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                console.log(result, "RESULT WWWWWWWWWWWAAAAAAITTTT")
+                console.log(result, "RESULT")
             })    
         } 
         catch (error) {
@@ -183,18 +164,9 @@ export const useAdminCollectionState = () => {
         }        
     }
 
-    // const nextStage = async () =>{
-    //     await contract.nextStage().send({ from: account})    
-    //     .on("transactionHash", (result: any) => console.log("transactionHash",result))
-    //     .on("receipt", (result:any) => console.log("resultTx",result.status,"txnHash", result.transactionHash ))
-    //     .on("error", (error: any) => alert(error.message))
-    //     .catch((error:any) => alert(error.message))
-    // }
-
     const setMaxQuantity = async(value: any, name: any) => {
 
-
-        console.log(name,'NAME SET MAX QUANTITY RESULT')
+        // console.log(name,'NAME SET MAX QUANTITY RESULT')
         if(name ==='setMintPrices'){
             value[0] = ethers.utils.parseEther(value[0].toString())
             value[1] = ethers.utils.parseEther(value[1].toString())
@@ -204,7 +176,7 @@ export const useAdminCollectionState = () => {
         try {
             const tx = await contract[name](value[0], value[1])  
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+            console.log(tx,"TX" )
             tx.wait().then((result: any) => {
                 setContractDetails((state: any) => ({
                     ...state,
@@ -212,7 +184,7 @@ export const useAdminCollectionState = () => {
                     [name === 'setMintPrices' ? 'mintPricePublic' : 'maxMintPerWalletPublic']: value[1]
                 }))
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                console.log(result, "RESULT WWWWWWWWWWWAAAAAAITTTT")
+                console.log(result, "RESULT")
             })    
         } 
         catch (error) {
@@ -225,29 +197,6 @@ export const useAdminCollectionState = () => {
         console.log("QUE ENVIO", value, name, account)
 
         let action: any;
-
-        // const field = {
-        //     supply: {
-        //         name: 'maxSupply',
-        //         action: 'setMaxSupply'
-        //     },
-        //     addWhiteList: {
-        //         name: 'addAddressToWhitelist',
-        //         action: 'addAddressToWhitelist' 
-        //     },
-        //     removeWhiteList: {
-        //         name: 'removeAddressFromWhitelist',
-        //         action: 'removeAddressFromWhitelist' 
-        //     },
-        //     baseuri: {
-        //         name:'uri',
-        //         action: 'setBaseUri'
-        //     },
-        //     reveal: {
-        //         name:'RevealURI',            
-        //         action: 'revealCollection'
-        //     }
-        // }
 
         if(name === 'maxSupply') {
             action = 'setMaxSupply'
@@ -307,42 +256,7 @@ export const useAdminCollectionState = () => {
         catch (error) {
             console.log(`ERROR ${action}`, error.message)
             enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
-        }
-        
-        // await contract[action](                
-        //     name === "addAddressToWhitelist"?
-        //     [value]
-        //     : 
-        //     value
-        // )
-        // // .send({ from: formattedAddress})
-        // .on("transactionHash", (result: any) => {
-        //     enqueueSnackbar('transaction send', {variant: 'info'})
-        //     console.log("transactionHash",result)
-            
-        // })
-        // .on("receipt", (result:any) => {
-            
-        //     console.log("%cname","color: red;", name, "%cVALUE", value, "%cRESULT", result   )
-
-        //     // const fieldName = name === 'setBaseUri' || name === 'revealURI' ? 'uri' : name
-
-        //     setContractDetails((state: any) => ({
-        //         ...state,
-        //         [name]: value
-        //     }))
-        //     enqueueSnackbar(`transaction confirmed: ${result.status} check on:${result.transactionHash}`, {variant: 'success'})
-
-            
-
-            
-        // })
-        // .on("error", (error: any) => {
-        //     enqueueSnackbar(`error: ${error.message}`, {variant: 'error'})
-        // })
-        // .catch((error:any) => {
-        //     enqueueSnackbar(`error: ${error.message}`, {variant: 'error'})
-        // })
+        }        
                     
     }
 
@@ -368,11 +282,7 @@ export const useAdminCollectionState = () => {
         
         
     }, [getContractDetails, chainId, contract])
-
-    // useEffect(() => {
-        
-    // },[fields])
-    
+  
     // console.log(contractDetails, "DDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEETAILASSSSSSSSSSSs")
 
     
@@ -459,7 +369,6 @@ export const useAdminCollectionState = () => {
         }        
         
     ]
-
 
     // console.log(formattedContDetail, "FORMATTTED CONTRACTRT")
 

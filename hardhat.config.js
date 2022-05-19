@@ -11,13 +11,6 @@ require("hardhat-deploy-ethers");
 // https://hardhat.org/guides/create-task.html
 // task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 //   const accounts = await hre.ethers.getSigners();
-
-//   for (const account of accounts) {
-//     console.log(account.address);
-//   }
-// });
-
-
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -26,21 +19,28 @@ require("hardhat-deploy-ethers");
  * 
  */
 
- const RINKEBY_RPC_URL = process.env.INFURA;
- const PRIVATE_KEY = process.env.PRIVATE_KEY;
- const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
+const RINKEBY_RPC_URL = process.env.ETH_INFURA;
+const MUMBAI_RPC_URL = process.env.POLYGON_ALCHEMY
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
+const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY
+
+console.log(POLYGONSCAN_API_KEY, "PLOY KEY")
 const accounts = [
   PRIVATE_KEY
 ]
 
 module.exports = {
-  solidity: "0.8.10",
-  settings: {
-    optimizer: {
-      enabled: true,
-      runs: 1000,
+  solidity: {
+    version:"0.8.8",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 1000,
+      },
     },
   },
+  
   namedAccounts: {
     deployer: 0,
     wladdr1:  1,
@@ -60,13 +60,26 @@ module.exports = {
       accounts,
       timeout: 5 * 60 * 1000,
     },
+    polygonMumbai: {
+      url: MUMBAI_RPC_URL,
+      accounts,
+      timeout: 5 * 60 * 1000,
+    },
     hardhat: {
-      live: true,      
+      live: false,      
       tags: ["test", "local"]
     },
   },
   etherscan: {
-    apiKey: ETHERSCAN_API_KEY
+    apiKey: {
+      
+      //ethereum
+      // rinkeby:  ETHERSCAN_API_KEY,
+
+      //polygon
+      polygonMumbai: POLYGONSCAN_API_KEY
+
+    }
   },
   gasReporter: {
     enabled: (process.env.REPORT_GAS) ? true : false,

@@ -1,11 +1,9 @@
 import Box from '@mui/material/Box';
 import {AdminCardFields} from '../style'
-// import Web3 from "web3"
-import {ethers} from "ethers"
 import Skeleton from '@mui/material/Skeleton';
 import { v4 as uuidv4 } from "uuid";
 
-const AdminInfoCard = ({data, balance, library}: any) => {
+const AdminInfoCard = ({data}: any) => {
 
   // console.log(data,  "DATA ADMIN INFO CARD")
   // console.log(balance,  "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")

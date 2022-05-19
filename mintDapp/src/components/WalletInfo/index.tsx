@@ -1,52 +1,20 @@
-import { useCallback, useState, useEffect } from 'react'
-import {  useWeb3React, UnsupportedChainIdError } from "@web3-react/core";
-import { connector } from "../../config/connectors/provider";
-// import { connect, disconnect } from "../../config/connectors/walletConnector";
 import { Box} from '@mui/system';
 import {StyledWalletInfo, DisconnectButton, WalletButton} from './style';
 import Button from "../../components/Button"; 
-import { parse } from 'url';
-import {ethers} from "ethers"
+import useWalletInfo from "./utils"
 
 
 const WalletInfo = () => {
 
-  const {active, activate, deactivate, account, error, library, chainId} = useWeb3React()
+  const {
+    active,
+    address,
+    balance,
+    connect,
+    disconnect,
+    isUnSupportedChain
+  } = useWalletInfo()
 
-  console.log(library, "LIBRARY EN WALLET INFO")
-  const isUnSupportedChain = error instanceof UnsupportedChainIdError
-  const [chainID, setChainId] = useState(0);
-  const [balance, setBalance] = useState<any>(0)
-  const [address, setAddress] = useState<any>(0)
-
-  useEffect(() => {
-    
-    if(active && account){
-      setAddress(`${account?.substr(0, 6)}...${account?.substr(-4)}`)
-      getBalance()
-    }
-        
-  },[active, account, chainId])
-
-  const getBalance = useCallback (async() => {
-      const rawBalance = await library.getBalance(account)      
-      const cleanBalance = parseFloat(ethers.utils.formatEther(rawBalance)).toFixed(4)
-      // console.log("dfasdfsd", typeof(cleanBalance))
-      setBalance(cleanBalance)
-  }, [account, chainId])
-
-  const connect = async() => {
-    
-    activate(connector)
-    localStorage.setItem('isWalletConnected', 'true')
-    console.log("isUnsupported", isUnSupportedChain, "ACCCOUNTT", account)
-  
-  }
-  
-  const disconnect = async() => {
-    localStorage.removeItem('isWalletConnected')
-    deactivate()
-  }
 
   return( 
       <Box sx={StyledWalletInfo}>
@@ -59,9 +27,7 @@ const WalletInfo = () => {
         <Button text={ isUnSupportedChain? "Unsupported Network" : "connect"} styled={WalletButton} action={connect}/>    
       }   
       </Box>
-
-  )
-  
+  )  
 };
 
 export default WalletInfo;

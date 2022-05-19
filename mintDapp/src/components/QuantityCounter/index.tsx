@@ -1,9 +1,8 @@
-import React from 'react';
 import { QuantityContainer, Decrease, Quantity, Increase } from './style';
 
 interface QuantityArguments{
-    value: any, // no acepta number ni string
-    setValue: any, // funcion 
+    value: any, 
+    setValue: any, 
     available: number,
     color: string, 
     disabled: any
@@ -46,14 +45,12 @@ const QuantityCounter = ({value, setValue, available, color, disabled}: Quantity
 	}
 
 	return(        
-        <QuantityContainer>
-            
+        <QuantityContainer>            
 			<Decrease 
 				// disabled={value !== 1 ? false : true} 				
                 onClick = {handleSubtract}
 				color={color}
-				disabled={notDecrease}
-				
+				disabled={notDecrease}				
 			>
 			</Decrease>
 			<Quantity
@@ -64,14 +61,12 @@ const QuantityCounter = ({value, setValue, available, color, disabled}: Quantity
 				onChange={(e:any)=>handleChange(parseFloat(e.target.value))}
 				onBlur={()=>handleOnBlur()}
 				color={color}
-				
 			/>
             <Increase
         		// disabled={value === available  ? true : available === 0 && true }  
                 onClick = {handleAdd}
 				color={color}
 				disabled={notIncrease}
-				
             >
 			</Increase>
 		</QuantityContainer>
@@ -79,8 +74,5 @@ const QuantityCounter = ({value, setValue, available, color, disabled}: Quantity
 
 }
 
-// IncreaseProduct.defaultProps = {
-// 	value : 1
-// }
 
 export default QuantityCounter;

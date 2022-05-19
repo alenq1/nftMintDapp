@@ -1,17 +1,11 @@
 import {StyledGallery, StyledSkeleton} from './style';
-import { useEffect, useCallback, useState } from "react";
 import GalleryGrid from '../../components/GalleryGrid'
-// import {CollectionView} from '../../components/GalleryGrid/style'
-import NftCard from '../../components/NftCard';
 import NftDetail from '../../components/NftDetail';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
 import {useGalleryState} from './utils';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
 
 
 const Gallery = () => {
@@ -21,12 +15,12 @@ const Gallery = () => {
     gallery, 
     ownedNft, 
     defaultView, 
-    setDefaultView, 
+    // setDefaultView, 
     // showOnlyOwned,
     open,
-    setOpen,
+    // setOpen,
     nftIndex,
-    setNftIndex,
+    // setNftIndex,
     handleChange,
     handleClickOpen,
     handleClose
@@ -36,7 +30,12 @@ const Gallery = () => {
 
 
 
-console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
+// console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
+// console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
+// console.log("NFT INDEXX", nftIndex)
+console.log("LOADING", loading)
+console.log("GALLLERY EN INDEX", gallery)
+
 
 
   return (
@@ -48,16 +47,6 @@ console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpe
           <Tab label="Full Collection"/>
           <Tab label="My Collection"/>
         </Tabs>
-          {/* <Box onClick={()=> setDefaultView(true)}>
-            Full Collection
-          </Box>
-          <Box onClick={()=> {
-            setDefaultView(false)
-            showOnlyOwned()
-            }}
-          >
-            My Collection
-          </Box> */}
         </Box>
       </Box>
       { 
@@ -71,11 +60,11 @@ console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpe
         loading === 'loaded' ?
         
         <GalleryGrid
-        loading={loading}
-        gallery={gallery}
-        ownedNft={ownedNft}
-        defaultView={defaultView}
-        handleClickOpen={handleClickOpen}
+          loading={loading}
+          gallery={gallery}
+          ownedNft={ownedNft}
+          defaultView={defaultView}
+          handleClickOpen={handleClickOpen}
         />
         :
         loading === 'failed' ?
@@ -83,17 +72,16 @@ console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpe
         <Box>Error</Box>
         :
         <Box>Empty Gallery</Box>
-
-
       }
       
-      { nftIndex > -1 &&
-      <NftDetail 
-        open={open}
-        handleClose={handleClose}
-        gallery={gallery}
-        nftIndex={nftIndex}
-        />
+      { 
+        nftIndex > -1 &&
+        <NftDetail 
+          open={open}
+          handleClose={handleClose}
+          gallery={gallery}
+          nftIndex={nftIndex}
+          />
       }
     </Box>
   );

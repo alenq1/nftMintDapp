@@ -59,49 +59,12 @@ const Header = () => {
   const connect = async() => {
     
     activate(connector)
-
-    // await metaMask.activate()    
-    // await web3Connector()
     console.log("isUnsupported", isUnSupportedChain, "ACCCOUNTT", account)
-    
-    // const shortAdress: any = `${uno}...${dos}` | ""
-    // setAddress(shortAdress)
   }
   
   const disconnect = async() => {
     deactivate()
-    // await metaMask.deactivate()
   }
-
-  // const getBalances = useCallback(async() => {
-  //   if(provider && accounts?.length){
-  //     void Promise.all(accounts.map((account) => provider.getBalance(account))).then((balances) => {
-  //       setBalance(balances)
-  //     } )
-  //   }
-  // }, [accounts]);
-
-
-   
-    
-    // if (provider && accounts?.length) {
-    //   let stale = false
-
-    //   void Promise.all(accounts.map((account) => provider.getBalance(account))).then((balances) => {        
-    //       setBalances(balances)
-    //   })
-      
-    // }
-  
-
-  // const ButtonContent = () => {
-  //   return(
-  //   <>
-  //   <div></div>
-  //   <div>{balance}</div>
-  //   </>
-  //   )
-  // }
   
   return( 
   <Box sx={StyledHeader}>

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.8;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
@@ -30,7 +30,7 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
     
     bool public isPaused;   
     bool public burnEnabled;    
-    uint public whitelistCount;
+    // uint public whitelistCount;
     mapping(address => WhitelistData) public whiteListedAddress;    
     uint256 public maxSupply;
     uint256 public maxMintPerWalletWhite;
@@ -61,12 +61,8 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
         mintPriceWhite = mintPriceWhite_;
         lastActivity = block.timestamp;
         stage = MintStage.INITIATED;
-
-        //mintPricePublic = mintPricePublic_;
-        //mintPriceWhite = mintPriceWhite_;
         
     }
-
 
     modifier atStage(MintStage _stage) {
         require(!isPaused, "The contract is paused");
@@ -79,9 +75,7 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
         require(totalSupply() < maxSupply, "Sold Out");  
         require(msg.sender == tx.origin, "only mint origin wallet"); 
         _;
-        
     }
-
     
     function setMaxSupply(uint256 maxSupply_) 
         onlyOwner
@@ -111,9 +105,7 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
         atStage(MintStage.INITIATED)        
         public {
             uri = uri_;
-            //nextStage();
     } 
-
 
     function addAddressToWhitelist(address[] calldata _addresses) 
         onlyOwner
@@ -124,20 +116,20 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
         for (uint256 i = 0; i < _addresses.length; i++) {
             whiteListedAddress[_addresses[i]].allowedMints = maxMintPerWalletWhite;
             whiteListedAddress[_addresses[i]].isWhiteListed = true;
-            whitelistCount++;
+            // whitelistCount++;
             emit AddedToWhiteList(_addresses[i]);
         }
     }
-
 
     function removeAddressFromWhitelist(address _address) 
         onlyOwner
         atStage(MintStage.INITIATED)        
         external {
         
-        require(whiteListedAddress[_address].isWhiteListed, "Address is not whitelisted");        
-        delete whiteListedAddress[_address];        
-        emit RemovedFromWhiteList(_address);
+            require(whiteListedAddress[_address].isWhiteListed, "Address is not whitelisted");        
+            delete whiteListedAddress[_address]; 
+            // whitelistCount--;       
+            emit RemovedFromWhiteList(_address);
     }
 
 
@@ -152,20 +144,18 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
             require(whiteListedAddress[msg.sender].allowedMints >= amount, "not allowed mint more than amount left");
             
             require(mintPriceWhite * amount <= msg.value, "insuficient fonds");                        
-            // uint256 tokenId = _tokenIdCounter.current();
-
             require((whiteListedAddress[msg.sender].allowedMints - amount) >= 0, "no negative");
             
             whiteListedAddress[msg.sender].allowedMints -= amount;
             for (uint256 i = 0; i < amount; i++) {
                 _tokenIdCounter.increment();
-                _safeMint(msg.sender, _tokenIdCounter.current());        
+                _mint(msg.sender, _tokenIdCounter.current());        
             }
             emit WhiteMintEvent(msg.sender, amount);
 
     }
 
-     function publicMint(uint256 amount) 
+    function publicMint(uint256 amount) 
         atStage(MintStage.PUBLICMINT)
         validateMint(amount)        
         external 
@@ -174,17 +164,12 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
             require(amount <= maxMintPerWalletPublic, "exceed max mint per wallet");  
             require((amount + totalSupply()) <= maxSupply, "amount exceed remaining mint");              
             require(mintPricePublic * amount <= msg.value, "insuficient fonds"); 
-            
-            //uint256 tokenId = _tokenIdCounter.current();
-                        
+                                    
             for (uint256 i = 0; i < amount; i++) {
                 _tokenIdCounter.increment();
                 _safeMint(msg.sender, _tokenIdCounter.current());        
             }    
             
-            //if(maxSupply === totalSupply()){
-            //    nextStage();
-            //}
             emit PublicMintEvent(msg.sender, amount);  
     }
 
@@ -208,14 +193,12 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
             payable(owner()).transfer(address(this).balance);
     }
 
-
     function enableBurn()     
     onlyOwner 
     atStage(MintStage.FINISHED) 
     public {
         burnEnabled = true;
     }
-
 
     function setPause() 
         onlyOwner
@@ -243,13 +226,16 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
         require(
             _exists(tokenId),
             "ERC721 Metadata: URI query for nonexistent token"
-        );
-        
-        //return usePlaceholderUri ? uri : bytes(uri).length > 0 ? string(abi.encodePacked(uri, tokenId.toString())) : "";
-        return string(abi.encodePacked(uri,  Strings.toString(tokenId),baseExtension));
-    }
+        ); 
 
-    // The following functions are overrides required by Solidity.
+        if(stage == MintStage.REVEAL){
+            return string(abi.encodePacked(uri,  Strings.toString(tokenId),baseExtension));
+        }
+        else{
+            return string(abi.encodePacked(uri));
+        }
+        
+    }
 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal

@@ -134,6 +134,7 @@ const  AdminForm = (props: any) => {
         <Box sx={FormFields}>
             <TextField
                 disabled={contractDetails.stage !== 0 || isPaused} 
+                multiline
                 id="addAddressToWhitelist"
                 name="addAddressToWhitelist"
                 label="Add address to Whitelist"
@@ -156,10 +157,7 @@ const  AdminForm = (props: any) => {
             <Button text={"send"} action={() =>send (fields.removeAddressFromWhitelist, Object.keys(fields)[7])}
         disabled={contractDetails.stage !== 0 || isPaused}    
 />
-        </Box>
-
-        
-
+        </Box>        
         <Box sx={FormFields}>
             <Typography variant="subtitle1" gutterBottom component="div">
                 enable Burn

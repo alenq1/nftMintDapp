@@ -6,8 +6,6 @@ import {StyledMain, Descriptions, OtherDescriptions,
   CustomizedAccordions, 
   FaqContainer,
   Stages
-
-
 } from './style';
 // import NftCard from "../../components/NftCard";
 import MintSection from "../../components/MintSection";  
@@ -15,38 +13,11 @@ import Description  from "../../components/Description";
 import MintStages from "../../components/MintStages";
 import { useWeb3React } from "@web3-react/core";
 import { useContract } from "../../hooks/useContract";
-
-
+import useHomeState from "./utils";
 
 
 
 const Home = () => {
-
-  const {active, library, chainId} = useWeb3React()
-  const [name, setName] = useState<any>("")
-  const{ contract}: any = useContract()
-  console.log(contract, "QUE ES CONTRACT")
-  console.log(contract === null , "CONTRAVCT ES BNULLLLLLLLLL?????")
-
-  const getMintType = async() => {
-
-    if(contract !== null){
-      const name: any = await contract.name()
-      setName(name)
-    }
-    
-  }
-  
-
-
-  useEffect(() => {
-    if(contract !== null && active){
-      getMintType()
-    }
-    console.log("CONTRACT",contract)
-  
-    
-  }, [active,contract, chainId]);
 
 
   return (
