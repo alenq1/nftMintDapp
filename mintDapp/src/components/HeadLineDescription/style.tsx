@@ -1,5 +1,17 @@
 
-export const StyledDescriptionSection = {
+
+export const headLineContent = {
+  descriptionTitle: "Description Section",
+  headLineTitle: "Headline",
+  headLineText: `Lorem ipsum dolor, sit amet consectetur adipisicing elit 
+  Facere eos molestias, pariatur delectus iste perspiciatis, 
+  cumque odit dolores aspernatur recusandae laboriosam minus voluptas 
+  quidem dolorem debitis sequi doloremque necessitatibus veniam`,
+
+}
+
+
+export const StyledHeadLineDescription = {
   padding: 3,
   width: "30em",
   display: "flex",

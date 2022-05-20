@@ -20,7 +20,7 @@ enum MintStage {
 }
     
 export const steps = [
-    'Preparing contract', 
+    'Preparing Contract', 
     'Start WhiteList Sale', 
     'Start PublicSale',
     'Reveal Collection',

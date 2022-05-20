@@ -10,15 +10,15 @@ function App() {
 
 
   return (    
-      <CssBaseline>        
-          <SnackbarProvider>
-            <Box sx={appStyle}>        
-                <Header/>
-                  <WrappedRoutes/>
-                <Footer/>     
-            </Box>
-          </SnackbarProvider>
-      </CssBaseline>    
+    <CssBaseline>        
+      <SnackbarProvider>
+        <Box sx={appStyle}>        
+          <Header/>
+            <WrappedRoutes/>
+          <Footer/>     
+        </Box>
+      </SnackbarProvider>
+    </CssBaseline>    
   );
 }
 

@@ -40,7 +40,7 @@ export const useAdminCollectionState = () => {
     const getContractBalance = async() => {
         if(contract){
 
-            const contractRawBalance = await library.getBalance(contract.address)
+            const contractRawBalance = await library?.getBalance(contract.address)
             const contractCleanBalance = parseFloat(ethers.utils.formatEther(contractRawBalance))
             // console.log(contractCleanBalance, "BALANCCCCCCCE LIMIPIIIIIIIIIIIOOOOOOOOOOOO")
             setContractBalance(contractCleanBalance)            

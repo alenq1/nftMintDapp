@@ -1,7 +1,8 @@
 
 export const StyledMain = {
-  height: "auto",    
   display: "flex",
+  width: "100%",
+  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center"
 

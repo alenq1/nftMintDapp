@@ -28,7 +28,7 @@ export  const useMintState = () => {
         maxMintPerWalletPublic: 0,
     })
     const[contractState, setContractState] = useState<number>(0)    
-    const [quantity, setQuantity] = useState(1)
+    const [quantity, setQuantity] = useState<number>(1)
     const [isWhiteListed, setIsWhiteListed] = useState<boolean>(false)
     const { enqueueSnackbar } = useSnackbar();
 
@@ -65,13 +65,9 @@ export  const useMintState = () => {
 
 
     useEffect(() => {
-        if(active && contract){
-            // getMintState()
+        if(active && contract){            
             getMintNumbers()
-            getMintState()  
-            // if(contractState === 1){
-            //     checkWhiteListed()
-            // }                 
+            getMintState()              
         }        
         // console.log(mintNumbers, "mintNumbers")
     },[active, contract, chainId])
@@ -88,7 +84,7 @@ export  const useMintState = () => {
     const mint = async() => {
 
         if(contractState === 1){
-            console.log("condicion whitelisted")
+            // console.log("condicion whitelisted")
             try {
                 const valueToSend = (quantity * mintNumbers.mintPriceWhite).toString()
                 const tx =  await contract?.whiteMint(quantity, {value: ethers.utils.parseEther(valueToSend)})
@@ -140,11 +136,19 @@ export  const useMintState = () => {
             }
         }
         else {
-            alert("not allow to Mint")
+            enqueueSnackbar(`error: not allow to Mint`, {variant: 'error'})    
         }                    
     }
     // console.log(contractState, "STATE ANTES DE MEINT SECTION INDEX")
 
-    return {library, contract, mintNumbers, mint, quantity, setQuantity, contractState}
+    return {
+        library, 
+        contract, 
+        mintNumbers, 
+        mint, 
+        quantity, 
+        setQuantity, 
+        contractState
+    }
 
 }

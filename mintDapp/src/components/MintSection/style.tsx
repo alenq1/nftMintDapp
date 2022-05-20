@@ -1,4 +1,27 @@
 import { alpha, styled } from '@mui/material/styles';
+import {ReactComponent as Invader} from '../../assets/svgs/logo.svg';
+import {ReactComponent as Invader2} from '../../assets/svgs/invader2.svg';
+import {ReactComponent as Invader3} from '../../assets/svgs/invader3.svg';
+import {ReactComponent as Invader4} from '../../assets/svgs/invader4.svg';
+import {ReactComponent as Invader5} from '../../assets/svgs/invader5.svg';
+
+export const contentArray = [
+  <Invader/>,
+  <Invader2/>,
+  <Invader3/>,
+  <Invader4/>,
+  <Invader5/>
+]
+
+export const mintText = {
+  mintTitle: "Mint your Invader" ,
+  noContract: "Please Connect Wallet",  
+  showMinted: `Minted :`,
+  showCost: "Total Cost: ",
+  symbol: "ETH",
+  soldOut: "Sold Out",  
+  mintButton: "Mint",
+}
 
 
 export const StyledMintSection = {

@@ -29,7 +29,6 @@ const AdminPanel = () => {
   return (
           
         contractDetails ?
-
         
         <Box sx={StyledAdminPanel}>
           <Box>
@@ -55,14 +54,12 @@ const AdminPanel = () => {
                 send={send}
                 setMaxQuantity={setMaxQuantity}    
                 withdraw={withdraw}            
-
               />
             </AdminCards>
           </Box>
         </Box>
         :
         <div>ERROR</div>      
-
   )
 }
 
