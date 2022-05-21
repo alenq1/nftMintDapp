@@ -3,7 +3,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import {StyledNftDetail, BootstrapDialog} from './style'
+import {StyledNftDetail, BootstrapDialog, imgNftDetail, StyledAttribs, cardButtons} from './style'
 import{BootstrapDialogTitle} from "./utils"
 import { v4 as uuidv4 } from "uuid";
 
@@ -24,11 +24,13 @@ export default function NftDetail({open, handleClose, gallery, nftIndex}: any) {
           {nftData.name}
         </BootstrapDialogTitle>
         <DialogContent dividers>
-            <img
-              style={{ width: "100%", height: 200 }}
+            <Box sx={imgNftDetail}>
+            <img              
               alt={nftData.name}
               src={nftData.image.replace('ipfs://', 'https://ipfs.io/ipfs/')}
             />
+            </Box>
+            
           <Box sx={StyledNftDetail}>
             <Typography gutterBottom>
                 Description: {nftData.description}
@@ -45,18 +47,27 @@ export default function NftDetail({open, handleClose, gallery, nftIndex}: any) {
           {
             nftData.attributes.length > 0 &&
             nftData.attributes.map((item: any) => 
-            <>
-                <Typography gutterBottom key={uuidv4()}>                    
-                {`${item.trait_type}: ${item.value}`} 
-                </Typography>                
-            </>
+              <Box sx={StyledAttribs}>
+                  <strong key={uuidv4()}>                    
+                    {item.trait_type}                  
+                  </strong>                
+                  <span>
+                    {item.value}
+                  </span>
+              </Box>
                 )
           }   
           </Box>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
+        <DialogActions sx={cardButtons}>
+          <Button  autoFocus onClick={
+            ()=> {window.location.replace(
+              `https://testnets.opensea.io/assets/mumbai/0xbc8e37baff05e62739bda4b8d2187e39f105edab/${nftIndex+1}`
+              )
+                return null;
+              }        
+          }>
+            See OpenSea
           </Button>
         </DialogActions>
       </BootstrapDialog>

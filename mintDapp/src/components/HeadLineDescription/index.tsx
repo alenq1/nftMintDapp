@@ -12,7 +12,6 @@ const HeadLineDescription = () => {
 
   return( 
   <Box sx={StyledHeadLineDescription}>
-    <Box sx={font1}>{descriptionTitle}</Box>
     <h2>{headLineTitle}</h2>
     <div>{headLineText}</div>
   </Box>

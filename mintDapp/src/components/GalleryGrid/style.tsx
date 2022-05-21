@@ -11,6 +11,7 @@ export const StyledGalleryGrid = {
     display: "grid",
     gridTemplateColumns: '1fr 1fr 1fr',
     gridTemplateRows: "auto",
+    gridAutoFlow: "row",
     gap: 10
 
 

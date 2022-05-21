@@ -288,13 +288,13 @@ export const useAdminCollectionState = () => {
     // console.log(contract.address, "CONTRACT RAWWWWWWW")
     
     const formattedContDetail = [
-        {
-            text: "URI",
-            value: contractDetails.uri === "" ?
-                    "not set"
-                    :
-                    contractDetails.uri
-        },
+        // {
+        //     text: "URI",
+        //     value: contractDetails.uri === "" ?
+        //             "not set"
+        //             :
+        //             contractDetails.uri
+        // },
         {
             text: "Project Name",
             value: contractDetails.name

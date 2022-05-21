@@ -55,9 +55,10 @@ export const useGalleryState = () => {
                 // const formatURI = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/').replace(".json", "").slice(0,tokenURI <9 ? -1 : -2)
                 const formatURI = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/')
                 // console.log(formatURI,"FORMATED URI")
-                axios.get(formatURI)
+                await axios.get(formatURI)
                 .then((response)=>{
                     response.data.owner = ownerOf
+                    response.data.indexToOpen = index - 1
                     console.log("RESPOINSE A PEGAR",tokenURI, response.data)
                     // setGallery( (state: any) => state.concat(response.data))
                     // result.push(response.data)

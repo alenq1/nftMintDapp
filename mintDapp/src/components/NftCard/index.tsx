@@ -1,60 +1,71 @@
 import { Box} from '@mui/system';
-import {StyledCard} from './style';
+import {StyledCard, nftInfo, cardButtons} from './style';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
+import Button from '../Button'
 
 const NftCard = (props: any) => {
 
-  console.log(props.data , "QUES ES PRPOS  DATAA ahora si")
+  // console.log(props.data , "QUES ES PRPOS  DATAA ahora si")
   console.log(props.data ? true : false , "PROOSP DFATA?????????")
   
   if(props.data){
-    const {date, description, edition, image, name, owner} = props.data
-    const {handleClickOpen, index, status} = props
-    console.log("HANDEL CLICK OPEN", handleClickOpen)
+    const {date, description, edition, image, name, owner, indexToOpen} = props.data
+    const {handleClickOpen, index, status, defaultView} = props
+    // console.log("HANDEL CLICK OPEN", handleClickOpen)
+    console.log("ESTE ES EL VOY ABRIR", index)
+    // const indexToOpen = defaultView ? index : edition
+
+    const nftCardContent = [
+      {        
+        text: "Description:", 
+        value:  description
+      },
+      {
+        text: "Generated:", 
+        value: new Date(date)?.toLocaleString()
+      },
+      {
+        text: "Owner:", 
+        value: `${owner?.substr(0, 6)}...${owner?.substr(-4)}`
+      },
+    ]
 
     return (
-      <Card sx={StyledCard} onClick={() => handleClickOpen(index)}>
+      <Card sx={StyledCard} >
         <CardActionArea>
           <CardMedia
             component="img"
-            height="180"
+            height="256"
+            width="256"
             image={image? image.replace('ipfs://', 'https://ipfs.io/ipfs/') : "none"}
             alt={name}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {name}
-            </Typography>          
-            <Box>
-              <Typography variant="body2" color="text.secondary">
-                Description: {description}
-              </Typography>  
-            </Box>
-            <Box>
-              <Typography variant="body2" color="text.secondary">
-                Edition: {edition}
-              </Typography>  
-            </Box>
-            <Box>
-              <Typography variant="body2" color="text.secondary">
-              Date: {date}
-              </Typography>
-            </Box>
-            <Box>
-              <Typography variant="body2" color="text.secondary">
-              Owner: {owner}
-              </Typography>
-            </Box>
+            </Typography>  
+            {
+              nftCardContent.map( (item: any)=>
+                <Box sx={nftInfo}>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>{item.text}</strong> <span>{item.value}</span>
+                  </Typography>  
+              </Box>  
+              )
+            }                  
           </CardContent>
         </CardActionArea>          
-        <CardActions>
-          <Button size="small" color="primary">
-            Vien on etherscan
-          </Button>
+        <CardActions sx={cardButtons}>
+          <Button   text={"View on Explorer"} action={()=> {window.location.replace(
+            `https://mumbai.polygonscan.com/token/0xbc8e37baff05e62739bda4b8d2187e39f105edab?a=${indexToOpen}#inventory`
+            )
+              return null;
+            }}/>                    
+          <Button text={"More Details"} action={() => handleClickOpen(indexToOpen)}/>            
         </CardActions>
       </Card>
     )    

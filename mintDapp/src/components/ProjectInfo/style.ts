@@ -1,4 +1,5 @@
-import BackgroundPix from '../../assets/img/PolyGrid.png'
+
+import {dappConfig} from '../../config/dappConfig'
 
 export const projectInfoContent = {
     image: "https://media.giphy.com/media/3o85xsdxJti6JQmf1m/giphy.gif",
@@ -19,7 +20,7 @@ export const OtherDescriptions = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    background: `url(${BackgroundPix})`,
+    background: dappConfig.projectInfoBg,
     backgroundSize: "contain"
 
 }

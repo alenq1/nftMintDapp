@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { contentArray, StyledMintSection, StyledCardText, StyledCardImage, bgOptions, mintText } from "./style";
+import { contentArray, StyledMintSection, StyledCardText, StyledCardImage, mintText } from "./style";
 import { useMintState } from "./utils";
 import Carousel from 'react-material-ui-carousel'
 

@@ -1,4 +1,4 @@
-import {StyledGallery, StyledSkeleton} from './style';
+import {StyledGallery, StyledSkeleton, StyledTabs} from './style';
 import GalleryGrid from '../../components/GalleryGrid'
 import NftDetail from '../../components/NftDetail';
 import Box from '@mui/material/Box';
@@ -32,18 +32,19 @@ const Gallery = () => {
 
 // console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
 // console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
-// console.log("NFT INDEXX", nftIndex)
+console.log("NFT INDEXX", nftIndex)
 console.log("LOADING", loading)
 console.log("GALLLERY EN INDEX", gallery)
+console.log("OWNED NFT INDEX", ownedNft)
 
 
 
   return (
     <Box sx={StyledGallery}>
       <Box>
-        <h1>title</h1>  
-        <Box>
-        <Tabs value={defaultView ? 0 : 1} onChange={handleChange} aria-label="basic tabs example">
+        <h1>Invaderz NFT Collection</h1>  
+        <Box sx={StyledTabs}>
+        <Tabs  value={defaultView ? 0 : 1} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Full Collection"/>
           <Tab label="My Collection"/>
         </Tabs>
@@ -52,9 +53,9 @@ console.log("GALLLERY EN INDEX", gallery)
       { 
         loading === 'loading' ?
         <Box sx={StyledSkeleton}>
-        <Skeleton variant="rectangular" width={310} height={418} />
-        <Skeleton variant="rectangular" width={310} height={418} />
-        <Skeleton variant="rectangular" width={310} height={418} />
+          <Skeleton variant="rectangular" width={410} height={418} />
+          <Skeleton variant="rectangular" width={410} height={418} />
+          <Skeleton variant="rectangular" width={410} height={418} />
         </Box>
         :
         loading === 'loaded' ?
@@ -64,6 +65,7 @@ console.log("GALLLERY EN INDEX", gallery)
           gallery={gallery}
           ownedNft={ownedNft}
           defaultView={defaultView}
+          nftIndex={nftIndex}
           handleClickOpen={handleClickOpen}
         />
         :

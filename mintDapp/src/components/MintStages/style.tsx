@@ -47,6 +47,18 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 //   }),
 // );
 
+export const MintStageContainer = {
+    width: '100%',
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: 'center',
+  '& h1': {
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: 'center',
+  }
+}
 
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
@@ -66,7 +78,7 @@ export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
-    height: 3,
+    height: 5,
     border: 0,
     backgroundColor:
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
@@ -80,8 +92,8 @@ export const ColorlibStepIconRoot = styled('div')<{
   backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
   zIndex: 1,
   color: '#fff',
-  width: 50,
-  height: 50,
+  width: 40,
+  height: 40,
   display: 'flex',
   borderRadius: '50%',
   justifyContent: 'center',

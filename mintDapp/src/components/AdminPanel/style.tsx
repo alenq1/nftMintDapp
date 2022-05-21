@@ -20,8 +20,10 @@ export const StyledAdminPanel = {
 
 export const AdminCards = styled(Card)({
   padding:40,
+  maxWidth: "500px",
   /* From https://css.glass */
   background:" rgba(255, 255, 255, 0.19)",
+  // background:"black",
   borderRadius: "16px",
   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
   backdropFilter: "blur(3.6px)",
@@ -31,7 +33,7 @@ export const AdminCards = styled(Card)({
 })
 
 export const AdminCardFields = {
-  margin: 3
+  margin: 1.5
 }
 
 

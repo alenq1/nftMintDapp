@@ -1,4 +1,3 @@
-import BackgroundPix from '../../assets/img/PolyGrid.png'
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
@@ -6,6 +5,7 @@ import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import {dappConfig} from '../../config/dappConfig'
 
 
 
@@ -63,7 +63,7 @@ export const FaqContainer = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center", 
-  background: `url(${BackgroundPix})`,
+  background: dappConfig.projectInfoBg,
 }
 
 

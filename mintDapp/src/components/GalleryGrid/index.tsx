@@ -24,7 +24,7 @@ const GalleryGrid = (props: any) => {
     const { loading, gallery, ownedNft, defaultView, handleClickOpen, open, nftIndex, setNftIndex, handleClose} = props
 
     // console.log("GLLLAERT GRIDDDDDDDDDDD HANDLE CLICKKKKKKKKKKKKK", handleClickOpen)
-    
+    console.log(loading,"LOADINGGGGGGGGG")
      // console.log("gallery", gallery, "owned_NFT", ownedNft)
      let showNfts = defaultView ? gallery : ownedNft
   
@@ -50,20 +50,24 @@ const GalleryGrid = (props: any) => {
           <div>default view{defaultView ? "true": "false"}</div>
         </Box> */}
         {
-            showNfts.length > 0 ?
-          showNfts.map((item: any, index: any)=>         
+            loading === 'loaded' ?
+              showNfts.length > 0 ?
+                showNfts.map((item: any, index: any)=>         
           
-          <NftCard 
-            status={item.status}
-            data={item.value.data} 
-            index={index}
-            key={index*5}
-            handleClickOpen={handleClickOpen}
-          />
+                <NftCard 
+                  status={item.status}
+                  data={item.value.data} 
+                  index={index}
+                  key={index*5}
+                  handleClickOpen={handleClickOpen}
+                  defaultView={defaultView}
+                />
           
-            )
-          :
-          <div>Collection is empty</div>
+              )
+              :
+              <div>Collection is empty</div>
+            :
+            <div>cargando</div>
         }          
       </Box>
     </>
