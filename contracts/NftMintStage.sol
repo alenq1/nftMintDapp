@@ -47,10 +47,10 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
         string memory name_, 
         string memory symbol_,
         uint256 maxSupply_,
-        uint256 maxMintPerWalletPublic_,
-        uint256 maxMintPerWalletWhite_,        
-        uint256 mintPricePublic_,
-        uint256 mintPriceWhite_
+        uint256 maxMintPerWalletWhite_,                
+        uint256 maxMintPerWalletPublic_,        
+        uint256 mintPriceWhite_,
+        uint256 mintPricePublic_
     ) 
         ERC721(name_, symbol_){                
         burnEnabled = false;      
@@ -228,7 +228,7 @@ contract NftMintStage is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
             "ERC721 Metadata: URI query for nonexistent token"
         ); 
 
-        if(stage == MintStage.REVEAL){
+        if(stage > MintStage.PUBLICMINT){
             return string(abi.encodePacked(uri,  Strings.toString(tokenId),baseExtension));
         }
         else{

@@ -5,7 +5,7 @@
       "chainId": "4",
       "contracts": {
         "NftMintStage": {
-          "address": "0xaDCcC277842dB1E133b963193CEBf461f283AD64",
+          "address": "0x626A041285A0BB334f3f00eAe695436d0d32c167",
           "abi": [
             {
               "inputs": [
@@ -940,7 +940,7 @@
       "chainId": "80001",
       "contracts": {
         "NftMintStage": {
-          "address": "0x9eaE7E01b31Ed1f4207237be1Ac9991DC1e846de",
+          "address": "0xBC8E37bAfF05e62739BdA4b8d2187e39f105eDaB",
           "abi": [
             {
               "inputs": [

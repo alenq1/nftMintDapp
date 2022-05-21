@@ -9,9 +9,10 @@ export const StyledWalletInfo = {
 export const DisconnectButton = {
   background: "red",
   borderRadius: "50%",
-  width: 30,
-  height: 50,
-  marginLeft: "-20px",
+  minWidth: "52px", 
+  fontSize: "1.5rem",
+  height: 52,
+  marginLeft: "-35px",
   "&:hover":{
     background: "#c41212",
   }
@@ -20,7 +21,7 @@ export const DisconnectButton = {
 export const WalletButton = {
   background: "green",
     fontSize: "1.25rem",
-    padding: "0.3em 1em",
+    padding: "0.3em 2em 0.3em 1em",
     bordeRadius: "10%",
   "&:hover":{
     background: "#3fbc3f",

@@ -267,6 +267,7 @@ export const useAdminCollectionState = () => {
             const contractDetailsTemp= getContractDetails(contract)    
             // console.log( await contractDetailsTemp, "CONTRACT DETAILS TTTTTTTTTTTEEEEEEEEEEEEEEMMMMMMMMMMMPPPPPPPPPPP")    
             contractDetailsTemp.then(response => {
+                response.address = contract.address
                 setContractDetails(response)
                 // console.log("CONTRACT DETAILS LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", response)
             })
@@ -283,8 +284,8 @@ export const useAdminCollectionState = () => {
         
     }, [getContractDetails, chainId, contract])
   
-    // console.log(contractDetails, "DDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEETAILASSSSSSSSSSSs")
-
+    console.log(contractDetails, "DDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEETAILASSSSSSSSSSSs")
+    // console.log(contract.address, "CONTRACT RAWWWWWWW")
     
     const formattedContDetail = [
         {
@@ -299,8 +300,8 @@ export const useAdminCollectionState = () => {
             value: contractDetails.name
         },
         {
-            text: "Owner Address",
-            value: contractDetails.owner
+            text: "Contract Address",
+            value: contractDetails.address
         },
         {
             text: "Project Symbol",

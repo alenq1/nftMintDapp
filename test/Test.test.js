@@ -284,7 +284,10 @@ describe('Contract', async function () {
           expect(await contract.stage()).to.equal(3)
           expect(await contract.uri()).to.equal("")
           await contract.revealCollection(revealURI)
-          expect(await contract.uri()).to.equal(revealURI)        
+          expect(await contract.uri()).to.equal(revealURI)                  
+          expect(await contract.tokenURI(2)).to.equal(revealURI);
+          // await contract.nextStage()
+          // expect(await contract.tokenURI(2)).to.equal(revealURI+"2.json");
 
         })    
     })

@@ -41,16 +41,28 @@ export const StyledAdminForm = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  gap: 3
+  gap: 5,
 
+  '& button':{
+    width: "80%"
+}
 }
 
 
 export const FormFields = {
   height: "auto",
+  width: "100%",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center"
+  justifyContent: "space-between",
+  // alignItems: "center"
+
+  '& div':{
+      width: "100%"
+  },
+
+  '& button':{
+    width: "auto !important"
+}
 
 }
   
