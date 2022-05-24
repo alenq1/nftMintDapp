@@ -1,7 +1,7 @@
 
 export const StyledHome = {
   padding: 1,
-  maxWidth: "1800px",
+  maxwidth: "1800px",
   height: "auto",    
   display: "flex",
   flexDirection: "column",
@@ -14,12 +14,13 @@ export const StyledHome = {
 export const Stages = {
   margin: "0px",
   height: "100vh",    
-  width: "75%",
+  width: "100%",
   display: "flex",
   // flexDirection: "row",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
+  flexWrap: "wrap"
 
 
 }

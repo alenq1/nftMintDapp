@@ -12,7 +12,7 @@ export const ProjectInfo = () => {
                 {/* <img src="https://i.gifer.com/760R.gif" alt="sdsdds"/> */}
                 <img src={image} alt={alt}/>
             </Box>
-            <Box sx={{maxWidth: "600px"}}>
+            <Box sx={{maxwidth: "600px"}}>
                 <h3>{text}</h3>
             </Box>
         </Box>

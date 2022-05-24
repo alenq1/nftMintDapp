@@ -9,6 +9,7 @@ const appStyle = {
 //********backgrounds WITH GRADIENTS
 
 background: `${dappConfig.mainBackground}`,
+// background: `gray`,
 backgroundBlendMode: "screen, overlay, hard-light, normal",
 
 // background: "linear-gradient(115deg, #000000 0%, #00C508 55%, #000000 100%), linear-gradient(115deg, #0057FF 0%, #020077 100%), conic-gradient(from 110deg at -5% 35%, #000000 0deg, #FAFF00 360deg), conic-gradient(from 220deg at 30% 30%, #FF0000 0deg, #0000FF 220deg, #240060 360deg), conic-gradient(from 235deg at 60% 35%, #0089D7 0deg, #0000FF 180deg, #240060 360deg)",
@@ -34,18 +35,33 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
 
 /// ***********WITH IMAGE
 // backgroundImage: `url(${Image})`,
-backgroundSize: "contain",
+
 
 // filter: "blur(1px)",  
+  
+
+//STYLE CONFOILCT from
+// backgroundSize: "contain",
   minHeight: '100vh',
-  minWidth: '100vw',
-  // width: "100vw",
-  display: 'grid',  
+  // minwidth: '100vw',
+  // display: 'grid',  
+  // gridTemplateRows: 'auto 1fr auto',
+  
+  //STYLE DEBUGGED
+  display: "flex",
+  flexDirection: "column",
+  padding: 0
+
+
+
+
+  // width: "100%",
+  // height: "100vh",
   // gap: 1,
   
-  gridTemplateRows: 'auto 1fr auto',
-  // overflow: 'auto',
   
+  // overflow: 'auto',
+
 
 }
 
@@ -76,6 +92,15 @@ const theme = createTheme({
         '"SquareDance00"'
 
       ].join(','),
+      fontSize: 10
+    },
+    breakpoints: {
+      values: {
+        mobile: 0,
+        tablet: 640,
+        laptop: 1024,
+        desktop: 1200,
+      },
     },
   });
 

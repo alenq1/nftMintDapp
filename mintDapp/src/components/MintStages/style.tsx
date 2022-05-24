@@ -19,7 +19,7 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 //   },
 //   [`& .${stepConnectorClasses.line}`]: {
 //     borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
-//     borderTopWidth: 3,
+//     borderTopwidth: 3,
 //     borderRadius: 1,
 //   },
 // }));

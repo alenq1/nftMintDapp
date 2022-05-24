@@ -21,6 +21,13 @@ export const RoadMapContainer = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center", 
+    maxWidth: {
+        mobile: 200,
+        tablet: 450,
+        laptop: 800,
+
+    },
+
 
     '& h1':{
         margin: "100px 0px"
@@ -28,10 +35,15 @@ export const RoadMapContainer = {
 }
 
 export const StyledRoadMap = {
+    background: 'white',
+    width: "100%",
     padding: 0,
     height: "auto",    
-    display: "flex",
-    justifyContent: "space-between",
+    // display: "flex",
+    // justifyContent: "center",
+    // // flexWrap: "wrap",
+    
+    // width
 }
 
 
@@ -46,7 +58,13 @@ export const RoadMapLeft: any = {
 
     '& div':{
         padding: 5,
-        width: "450px",
+        minwidth: "250px",
+        minHeight: "250px",
+        width: {
+            mobile: 300,
+            tablet: 300,
+            laptop: 450
+        },
         height: "300px",
         border: "1px solid rgba(255, 255, 255, 0.21)",
         color: "white",
@@ -70,7 +88,11 @@ export const RoadMapRight: any = {
 
     '& div':{
         padding: 5,
-        width: "450px",
+        width: {
+            mobile: 300,
+            tablet: 300,
+            laptop: 450
+        },
         height: "300px",
         // border: "1px solid rgba(255, 255, 255, 0.21)",
         color: "white",

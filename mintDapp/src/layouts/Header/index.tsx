@@ -1,5 +1,5 @@
 import { Box} from '@mui/system';
-import {MenuWallet, StyledHeader} from './style';
+import {MenuLinks, StyledHeader, BoxLogo, Wallet} from './style';
 import Logo from "../../components/Logo"; 
 import Menu from "../../components/Menu"; 
 import WalletInfo  from "../../components/WalletInfo";
@@ -11,15 +11,18 @@ const Header = () => {
   const {title, logo} = dappConfig
   return( 
   <Box sx={StyledHeader}>
-    <Box sx={{display: "flex"}}>
+    <Box sx={BoxLogo}>
         <Logo title={title}
           logoImg={logo}
         />
     </Box>
-    <Box sx={MenuWallet}>
+    <Box sx={MenuLinks}>
       <Menu/>
+    </Box>
+    <Box sx={Wallet}>
       <WalletInfo/>
     </Box>
+    
   </Box>
 
   )

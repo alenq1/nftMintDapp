@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Typography from '@mui/material/Typography';
 import {Accordion, AccordionSummary, AccordionDetails, accordionContent} from './style'
-
+import { v4 as uuidv4 } from "uuid";
 
 export function CustomizedAccordions() {
     const [expanded, setExpanded] = useState<string | false>(false);
@@ -15,7 +15,7 @@ export function CustomizedAccordions() {
             {
                 accordionContent.map( (item: any)=>
                 
-                    <Accordion expanded={expanded === item.name} onChange={handleChange(item.name)}>
+                    <Accordion key={uuidv4()} expanded={expanded === item.name} onChange={handleChange(item.name)}>
                         <AccordionSummary aria-controls={item.ariaControls} id={item.id}>
                             <Typography>{item.title}</Typography>
                         </AccordionSummary>

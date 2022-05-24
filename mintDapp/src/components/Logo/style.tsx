@@ -19,6 +19,12 @@ export const StyledLogo = {
     justifyContent: "center",
     alignItems: "center",
   },
+  '& h2':{
+    display: {
+      mobile: "none",
+      tablet: "inherit"
+    },
+  }
 
 }
 

@@ -53,9 +53,9 @@ console.log("OWNED NFT INDEX", ownedNft)
       { 
         loading === 'loading' ?
         <Box sx={StyledSkeleton}>
-          <Skeleton variant="rectangular" width={410} height={418} />
-          <Skeleton variant="rectangular" width={410} height={418} />
-          <Skeleton variant="rectangular" width={410} height={418} />
+          <Skeleton variant="rectangular" width={310} height={318} />
+          <Skeleton variant="rectangular" width={310} height={318} />
+          <Skeleton variant="rectangular" width={310} height={318} />
         </Box>
         :
         loading === 'loaded' ?

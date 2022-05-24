@@ -9,9 +9,9 @@ import {dappConfig} from '../../config/dappConfig'
 
 
 
-export const StyledHome = {
+export const StyledFaq = {
   padding: 1,
-  maxWidth: "1800px",
+  // maxwidth: "1800px",
   height: "auto",    
   display: "flex",
   flexDirection: "column",
@@ -76,7 +76,7 @@ export const Accordion = styled((props: AccordionProps) => (
       '&:before': {
         display: 'none',
       },
-      maxWidth: "1000px",
+      maxwidth: "1000px",
       background:" rgba(255, 255, 255, 0.19)",
       borderRadius: "16px",
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",

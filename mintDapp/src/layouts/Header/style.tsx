@@ -13,18 +13,35 @@ export const StyledHeader = {
     textDecoration: "none",
     color: "black",
 
-  }
-
-  
-  
+  },
+  gap:2
 
 }
 
-export const MenuWallet = {
-  display: "flex",
+export const BoxLogo = {
+  marginRight: 'auto'
+}
+
+
+  
+  
+
+
+
+export const MenuLinks = {
+  display: {
+    mobile: "none",
+    tablet: "flex",
+  },
   justifyContent: "space-between",
   alignItems: "center",
   gap:5
   
 
+}
+
+export const Wallet = {
+  display: "flex",
+  alignItems: "center",
+  // fontSize: ".6rem !important", 
 }

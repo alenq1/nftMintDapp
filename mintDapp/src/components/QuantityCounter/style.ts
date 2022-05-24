@@ -16,7 +16,7 @@ export const QuantityContainer = styled("div")({
 const QuantityButton = styled("button")({
     padding:"0px !important",
     height:"40px",
-    maxWidth: "35px",
+    maxwidth: "35px",
     width: "34.8px",
     border: "2px solid #E2E2E2",
     background:"transparent",
@@ -51,7 +51,7 @@ export const Quantity = styled("input")({
     border: "2px solid #E2E2E2",
     borderLeft: "0px",
     borderRight: "0px",
-    maxWidth: " 40px",
+    maxwidth: " 40px",
     outline: " none",
     display: " flex",
     fontSize: `${sizeFigma}`,

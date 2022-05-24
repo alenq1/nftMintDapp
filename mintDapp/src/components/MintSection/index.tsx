@@ -1,4 +1,5 @@
 
+import React from 'react'
 import Button from "../../components/Button"; 
 import QuantityCounter from "../../components/QuantityCounter"; 
 import Card from '@mui/material/Card';
@@ -8,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { contentArray, StyledMintSection, StyledCardText, StyledCardImage, mintText } from "./style";
 import { useMintState } from "./utils";
 import Carousel from 'react-material-ui-carousel'
-
+import { v4 as uuidv4 } from "uuid";
 
 const MintSection = () => {
   
@@ -25,7 +26,7 @@ const MintSection = () => {
     <Carousel sx={StyledCardImage}>      
       {
         contentArray.map( (item: any) =>
-          item
+          <span key={uuidv4()}>{item}</span>
         )
       }
     </Carousel>

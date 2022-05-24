@@ -1,4 +1,5 @@
-import { Box} from '@mui/system';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import {
     StyledRoadMap, 
     RoadMapContainer,
@@ -24,7 +25,7 @@ const RoadMap = () => {
     } = RoadMapContent
 
     return (
-        <Box sx={RoadMapContainer}>
+        <Container sx={RoadMapContainer}>
             <Box>
                 <h1>{title}</h1>
             </Box>
@@ -44,7 +45,7 @@ const RoadMap = () => {
                     <Box>{fourthDescription}</Box>
                 </Box>
             </Box>
-        </Box>
+        </Container>
     )
 }
 

@@ -14,7 +14,7 @@ export const StyledCard = {
   border: "1px solid rgba(255, 255, 255, 0.21)",
 
   '& img':{
-    maxWidth: "100%",
+    maxwidth: "100%",
     height:"auto"
   }
 }

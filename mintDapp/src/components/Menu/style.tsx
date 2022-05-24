@@ -1,8 +1,8 @@
 
 export const StyledMenu = {
   display: "flex",
-  justifyContent: "space-between",
+  // justifyContent: "flex-end !important",
   alignItems: "center",
-  gap: 3
+  gap: 3,
 }
 

@@ -31,10 +31,10 @@ export const StyledTabs = {
 
 
 export const StyledSkeleton = {
-  margin: "100px",
-  width: "100%",
+  margin: "100px 0px",
+  // width: "auto",
   display: "flex",
-  height:"50vh",
+  // height:"50vh",
   alignItems: "center",
   justifyContent: "space-around",
   gap: 10
