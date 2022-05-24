@@ -16,14 +16,20 @@ export const StyledLogo = {
   "& a": {
     width: "100%",
     display: "flex",
+    flexDirection: {
+      lmobile: "column",
+      tablet:"row"
+    },
+    margin: 0,
     justifyContent: "center",
     alignItems: "center",
   },
   '& h2':{
     display: {
-      mobile: "none",
+      lmobile: "none",
       tablet: "inherit"
     },
+    
   }
 
 }

@@ -9,17 +9,26 @@ import Card from '@mui/material/Card';
 
 
 export const StyledAdminPanel = {
+    width: "100%",
     height: "auto",
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection:{
+      lmobile: "column",
+      tablet: "row"
+    },
+    flexWrap: "wrap",
+    justifyContent: {
+      lmobile: "center",
+      tablet: "space-between"
+    },
     alignItems: "flex-start",
-    gap: 20,
+    gap: 1,
     margin: "5em 0em"
   
   }
 
 export const AdminCards = styled(Card)({
-  padding:40,
+  padding: 30,
   maxwidth: "500px",
   /* From https://css.glass */
   background:" rgba(255, 255, 255, 0.19)",
@@ -36,8 +45,25 @@ export const AdminCardFields = {
   margin: 1.5
 }
 
+export const StyledAdminInfo = {
+  wordBreak: "break-all",
+  // minWidth: 100,
+//   height: "auto",
+//   display: "flex",
+//   flexDirection: "column",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   gap: 5,
+
+  '& h4':{
+    color: "whitesmoke"
+}
+}
+
+
 
 export const StyledAdminForm = {
+  minWidth: 100,
   height: "auto",
   display: "flex",
   flexDirection: "column",

@@ -17,10 +17,25 @@ export const OtherDescriptions = {
     height: "100%",    
     width: "100%",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: {
+        lmobile:"column",
+        tablet: "column",
+        laptop:"row"
+    },
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
     background: dappConfig.projectInfoBg,
-    backgroundSize: "contain"
+    backgroundSize: "contain",
 
+    '& img':{
+        width: "50%"        
+    }
+
+}
+
+export const InfoText = {
+    padding: 10,
+    width: "auto",
+    color: "white",
+    lineHeight: 2.5
 }

@@ -76,6 +76,7 @@ export const Accordion = styled((props: AccordionProps) => (
       '&:before': {
         display: 'none',
       },
+      marginTop: "35px",
       maxwidth: "1000px",
       background:" rgba(255, 255, 255, 0.19)",
       borderRadius: "16px",
@@ -83,6 +84,7 @@ export const Accordion = styled((props: AccordionProps) => (
       backdropFilter: "blur(3.6px)",
       WebkitBackdropFilter: "blur(3.6px)",
       border: "1px solid rgba(255, 255, 255, 0.21)",
+      padding: 15
 
   }));
 

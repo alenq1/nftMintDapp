@@ -30,7 +30,10 @@ export const Descriptions = {
   height: "100vh",    
   width: "100%",
   display: "flex",
-  flexDirection: "row",
+  flexDirection: {
+    lmobile: "column",
+    tablet: "row"
+  },
   alignItems: "center",
   justifyContent: "space-around"
 

@@ -57,7 +57,16 @@ export const MintStageContainer = {
     display: 'flex',
     justifyContent: "center",
     alignItems: 'center',
-  }
+  },
+}
+
+export const MintStagesTitle = {
+  width: '100%', 
+  marginTop: "40px" 
+}
+
+export const StyledStepper = {
+  overflowX: "auto",
 }
 
 

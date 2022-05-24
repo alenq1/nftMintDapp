@@ -23,68 +23,68 @@ const MintSection = () => {
 
   return (
     <Card sx={StyledMintSection}>      
-    <Carousel sx={StyledCardImage}>      
-      {
-        contentArray.map( (item: any) =>
-          <span key={uuidv4()}>{item}</span>
-        )
-      }
-    </Carousel>
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        {mintTitle}
-      </Typography>
-      <Typography sx={StyledCardText}>
+      <Carousel sx={StyledCardImage}>      
         {
-          contract ?
-
-            isSoldOut ?
-
-            soldOut
-            :                      
-            `${showMinted} ${mintNumbers.minted}/${mintNumbers.maxSupply} `                    
-          :
-          noContract
+          contentArray.map( (item: any) =>
+            <span key={uuidv4()}>{item}</span>
+          )
         }
-      </Typography>
-      <Typography sx={StyledCardText}>
-        {
-          contract &&
-            allowToMint &&
-              <strong>
-                `{showCost} ${
-                  contractState === 1 ?                    
-                    quantity * mintNumbers.mintPriceWhite
-                  :
-                  contractState === 2 ?
-                    
-                    quantity * mintNumbers.mintPricePublic
-                  :
-                  0
-                } ${symbol}`  
-              </strong>        
-        }
-      </Typography>
-    </CardContent>
-    <CardActions>      
-      <QuantityCounter   
-          value={quantity} 
-          setValue={setQuantity} 
-          available={
-            contractState === 1? 
-            mintNumbers.maxMintPerWalletWhite 
+      </Carousel>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {mintTitle}
+        </Typography>
+        <Typography sx={StyledCardText}>
+          {
+            contract ?
+
+              isSoldOut ?
+
+              soldOut
+              :                      
+              `${showMinted} ${mintNumbers.minted}/${mintNumbers.maxSupply} `                    
             :
-            contractState === 2? 
-            mintNumbers.maxMintPerWalletPublic
-            :
-            0
+            noContract
           }
+        </Typography>
+        <Typography sx={StyledCardText}>
+          {
+            contract &&
+              allowToMint &&
+                <strong>
+                  `{showCost} ${
+                    contractState === 1 ?                    
+                      quantity * mintNumbers.mintPriceWhite
+                    :
+                    contractState === 2 ?
+                      
+                      quantity * mintNumbers.mintPricePublic
+                    :
+                    0
+                  } ${symbol}`  
+                </strong>        
+          }
+        </Typography>
+      </CardContent>
+      <CardActions>      
+        <QuantityCounter   
+            value={quantity} 
+            setValue={setQuantity} 
+            available={
+              contractState === 1? 
+              mintNumbers.maxMintPerWalletWhite 
+              :
+              contractState === 2? 
+              mintNumbers.maxMintPerWalletPublic
+              :
+              0
+            }
 
-          color={"red"}
-          disabled={!contract || isSoldOut || !allowToMint}
-      />
-      <Button text={mintButton} action={mint} disabled={!contract || isSoldOut || !allowToMint}/>
-    </CardActions>
+            color={"red"}
+            disabled={!contract || isSoldOut || !allowToMint}
+        />
+        <Button text={mintButton} action={mint} disabled={!contract || isSoldOut || !allowToMint}/>
+      </CardActions>
   </Card>
 );
   

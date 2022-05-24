@@ -1,5 +1,5 @@
 import { Box} from '@mui/system';
-import {OtherDescriptions, projectInfoContent} from './style'
+import {OtherDescriptions, projectInfoContent, InfoText} from './style'
 
 export const ProjectInfo = () => {
 
@@ -7,13 +7,11 @@ export const ProjectInfo = () => {
 
     return (
     
-        <Box sx={OtherDescriptions}>
-            <Box>
+        <Box sx={OtherDescriptions}>            
                 {/* <img src="https://i.gifer.com/760R.gif" alt="sdsdds"/> */}
-                <img src={image} alt={alt}/>
-            </Box>
-            <Box sx={{maxwidth: "600px"}}>
-                <h3>{text}</h3>
+            <img src={image} alt={alt}/>            
+            <Box sx={InfoText} >
+                <span>{text}</span>
             </Box>
         </Box>
     )

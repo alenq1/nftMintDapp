@@ -301,6 +301,7 @@ export const useAdminCollectionState = () => {
         },
         {
             text: "Contract Address",
+            // value:  `${contractDetails.address?.substr(0, 6)}...${contractDetails.address?.substr(-4)}`
             value: contractDetails.address
         },
         {

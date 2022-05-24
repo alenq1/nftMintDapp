@@ -8,34 +8,36 @@ export const StyledHeader = {
   alignItems: "center",
   padding: "1rem 1.5rem",
   color: 'text.primary',
+  position: "relative",
   
   "& a": {
     textDecoration: "none",
     color: "black",
-
   },
-  gap:2
+  gap:2,
 
 }
 
 export const BoxLogo = {
-  marginRight: 'auto'
+  marginRight: 'auto',
+  marginLeft:{
+    lmobile: "35px",
+    tablet: "0px"
+  }
 }
-
-
-  
-  
-
-
 
 export const MenuLinks = {
   display: {
-    mobile: "none",
+    // lmobile: "none",
     tablet: "flex",
   },
   justifyContent: "space-between",
   alignItems: "center",
-  gap:5
+  gap:5,
+  position:{
+    lmobile: "absolute",
+    tablet: "inherit"
+  }
   
 
 }

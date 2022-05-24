@@ -3,6 +3,7 @@ export const StyledWalletInfo = {
   // display: "flex",
   // alignItems: "center",
   // fontSize: "1.25rem",
+  position: "relative"
   
 }
 
@@ -13,7 +14,10 @@ export const DisconnectButton = {
   fontSize: "1rem",
   height: 35,
   width: 20,
-  marginLeft: "-20px",
+  right: -15,
+  top: 7.5,
+  // margin: "20px -20px -20px -20px",
+  position: "absolute",
   "&:hover":{
     background: "#c41212",
   }
@@ -26,7 +30,9 @@ export const WalletButton = {
     padding: "0.3em 2em 0.3em 1em",
     bordeRadius: "10%",
     maxWidth: {
-      mobile:200
+      smobile: 100,
+      lmobile:200,
+
     },
 
   "&:hover":{

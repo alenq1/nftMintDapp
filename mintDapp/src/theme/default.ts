@@ -50,7 +50,8 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
   //STYLE DEBUGGED
   display: "flex",
   flexDirection: "column",
-  padding: 0
+  padding: 0,
+  //overflow: "hidden"
 
 
 
@@ -96,7 +97,8 @@ const theme = createTheme({
     },
     breakpoints: {
       values: {
-        mobile: 0,
+        smobile: 0,
+        lmobile: 320,
         tablet: 640,
         laptop: 1024,
         desktop: 1200,

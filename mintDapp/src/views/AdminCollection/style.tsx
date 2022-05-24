@@ -6,7 +6,7 @@ export const StyledAdminCollection = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  padding: "50px 100px"
+  padding: "50px"
 
 }
 

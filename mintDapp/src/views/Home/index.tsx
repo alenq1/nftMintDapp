@@ -28,7 +28,7 @@ const Home = () => {
       <HeadLineDescription/>
       <MintSection/>
     </Box>    
-    {/* <ProjectInfo/> */}
+    <ProjectInfo/>
     <RoadMap/>
     <Faq/>
   </Main>

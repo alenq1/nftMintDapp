@@ -12,7 +12,9 @@ import WbIridescentIcon from '@mui/icons-material/WbIridescent';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import { StepIconProps } from '@mui/material/StepIcon';
 import Button from '../Button';
-import { ColorlibStepIconRoot, ColorlibConnector, MintStageContainer } from './style'
+import { ColorlibStepIconRoot, ColorlibConnector, 
+  MintStageContainer, MintStagesTitle, StyledStepper
+} from './style'
 import { createNextState } from '@reduxjs/toolkit';
 import { useSnackbar } from 'notistack';
 import {useMintStages, steps, ColorlibStepIcon } from './utils'
@@ -28,15 +30,15 @@ export default function MintStages({isAdmin}: any) {
   return (
 
     <Box sx={MintStageContainer}>
-    <h1 style={{ width: '100%', marginTop: "40px" }}>Current Stage</h1>
+    <h1 style={MintStagesTitle}>Current Stage</h1>
     <Stack sx={{ width: '100%' }} spacing={4}>      
-      <Stepper alternativeLabel activeStep={stage} connector={<ColorlibConnector />}>
+      <Stepper sx={StyledStepper} alternativeLabel activeStep={stage} connector={<ColorlibConnector />}>
         {steps.map((label, index) => (
           <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>{
               index === stage ?              
 
-              <h2>{label}</h2>
+              <h3>{label}</h3>
               :
               label
               
