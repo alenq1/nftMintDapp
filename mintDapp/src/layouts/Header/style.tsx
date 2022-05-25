@@ -9,6 +9,7 @@ export const StyledHeader = {
   padding: "1rem 1.5rem",
   color: 'text.primary',
   position: "relative",
+  flexShrink: 0,
   
   "& a": {
     textDecoration: "none",

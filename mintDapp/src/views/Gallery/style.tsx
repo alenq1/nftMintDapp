@@ -7,8 +7,12 @@ export const StyledGallery = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "flex-start",
+  justifyContent: "start !important",
   
+  '& h1':{
+    display: "flex",
+    justifyContent: "center"
+  }
 
 }
 
@@ -35,6 +39,7 @@ export const StyledSkeleton = {
   // width: "auto",
   display: "flex",
   // height:"50vh",
+  flexWrap: "wrap",
   alignItems: "center",
   justifyContent: "space-around",
   gap: 10

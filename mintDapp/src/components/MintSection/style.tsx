@@ -42,12 +42,14 @@ export const StyledMintSection = {
 
 export const StyledCardImage =  {
   height: {
-    lmobile: "100%",
-    tablet: 500
+    // lmobile: "90%",
+    tablet: "100%",
+    laptop:  500
   },
   width: {
-    lmobile: "100%",
-    tablet: 500
+    // lmobile: "90%",
+    tablet: "100%",
+    laptop:  500
   },
   padding: 10,
   background: `url(https://i.gifer.com/YzM9.gif)`,

@@ -164,6 +164,7 @@ const  AdminForm = (props: any) => {
             </Typography>
             <Switch checked={!!contractDetails.burnEnabled}
                     name="enableBurn"
+                    color="success"
                     onChange={handleSwitch}
                     defaultChecked={contractDetails.burnEnabled}
                     // inputProps={{ 'aria-label': 'controlled' }}
@@ -175,6 +176,7 @@ const  AdminForm = (props: any) => {
                 </Typography>
                 <Switch checked={!!contractDetails.isPaused}
                     name="setPause"
+                    color="success"
                     onChange={handleSwitch}
                     defaultChecked={contractDetails.isPaused}
                     // inputProps={{ 'aria-label': 'controlled' }}

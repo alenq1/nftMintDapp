@@ -2,8 +2,7 @@ import { useEffect, useCallback, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { useContract } from "../../hooks/useContract";
 import axios from 'axios'
-import { getAllJSDocTags } from "typescript";
-
+import {chainMiscData} from '../../config/contract/contract'
 
 interface ILoading { 
     loading: 'idle' | 'loading' | 'loaded' | 'failed';
@@ -12,8 +11,9 @@ interface ILoading {
 export const useGalleryState = () => {
 
     
-    const {active, account} = useWeb3React()
-    const {contract} = useContract()
+    let contractAddress
+    const {active, account, chainId} = useWeb3React()
+    const {contract} = useContract()       
     const [loading, setLoading] = useState('idle')
     const [gallery, setGallery] = useState<any[]>([])
     const [ownedNft, setOwnedNft] = useState<any[]>([])    
@@ -36,9 +36,11 @@ export const useGalleryState = () => {
     };
 
     const getGalleryInfo = async() => {
-        if(contract !== undefined && gallery.length === 0){
+        if(contract !==null && gallery.length === 0){
             setLoading('loading')
             
+            console.log(contract, "CIONTRACT UTILS GALLERY")
+            const contractAddress = contract.address
             const totalSupply: any = await contract?.totalSupply()
             const balanceOf: any = await contract?.balanceOf(account)
             const tempArray: any[] = Array.from({length: totalSupply}, (_, i) => i + 1)
@@ -57,8 +59,11 @@ export const useGalleryState = () => {
                 // console.log(formatURI,"FORMATED URI")
                 await axios.get(formatURI)
                 .then((response)=>{
+                    const miscData: any = chainMiscData(chainId, contractAddress, index)
                     response.data.owner = ownerOf
                     response.data.indexToOpen = index - 1
+                    response.data.opensea = miscData.opensea
+                    response.data.explorer = miscData.explorer
                     console.log("RESPOINSE A PEGAR",tokenURI, response.data)
                     // setGallery( (state: any) => state.concat(response.data))
                     // result.push(response.data)
@@ -125,11 +130,14 @@ export const useGalleryState = () => {
             showOnlyOwned()
         }
     }, [account])
-    
+
+    console.log("gallery antes de devolver utils", gallery)
     
     return {
         loading,
         gallery, 
+        // chainId,
+        // contractAddress,
         ownedNft, 
         defaultView, 
         setDefaultView, 

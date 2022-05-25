@@ -13,7 +13,7 @@ const NftCard = (props: any) => {
   console.log(props.data ? true : false , "PROOSP DFATA?????????")
   
   if(props.data){
-    const {date, description, edition, image, name, owner, indexToOpen} = props.data
+    const {date, description, edition, image, name, owner, indexToOpen, explorer} = props.data
     const {handleClickOpen, index, status, defaultView} = props
     // console.log("HANDEL CLICK OPEN", handleClickOpen)
     console.log("ESTE ES EL VOY ABRIR", index)
@@ -60,10 +60,8 @@ const NftCard = (props: any) => {
           </CardContent>
         </CardActionArea>          
         <CardActions sx={cardButtons}>
-          <Button   text={"View on Explorer"} action={()=> {window.location.replace(
-            `https://mumbai.polygonscan.com/token/0xbc8e37baff05e62739bda4b8d2187e39f105edab?a=${indexToOpen}#inventory`
-            )
-              return null;
+          <Button   text={"View on Explorer"} action={()=> {
+            window.open(explorer, '_blank', 'noopener,noreferrer')
             }}/>                    
           <Button text={"More Details"} action={() => handleClickOpen(indexToOpen)}/>            
         </CardActions>

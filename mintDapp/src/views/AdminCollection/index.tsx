@@ -1,4 +1,5 @@
 import { Box} from '@mui/system';
+import Main from '../../layouts/Main'
 import {StyledAdminCollection} from './style';
 import {useAdminCollectionState} from './utils';
 ;import AdminPanel from '../../components/AdminPanel';
@@ -10,7 +11,7 @@ const AdminCollection = () => {
 
   return (
 
-  <Box sx={StyledAdminCollection } >    
+  <Main sx={StyledAdminCollection } >    
     {
       isAdmin ?
       
@@ -25,7 +26,7 @@ const AdminCollection = () => {
       <div>Please connect Wallet</div>
 
     }
-  </Box>
+  </Main>
 
   )
 };

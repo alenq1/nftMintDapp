@@ -58,6 +58,9 @@ export const MintStageContainer = {
     justifyContent: "center",
     alignItems: 'center',
   },
+  '& button': {
+    marginTop: "15px"
+  }
 }
 
 export const MintStagesTitle = {

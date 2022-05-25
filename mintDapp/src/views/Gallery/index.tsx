@@ -1,6 +1,8 @@
 import {StyledGallery, StyledSkeleton, StyledTabs} from './style';
+import Main from '../../layouts/Main'
 import GalleryGrid from '../../components/GalleryGrid'
 import NftDetail from '../../components/NftDetail';
+
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import {useGalleryState} from './utils';
@@ -13,6 +15,8 @@ const Gallery = () => {
   const { 
     loading, 
     gallery, 
+    chainId,
+    contractAddress,
     ownedNft, 
     defaultView, 
     // setDefaultView, 
@@ -40,7 +44,7 @@ console.log("OWNED NFT INDEX", ownedNft)
 
 
   return (
-    <Box sx={StyledGallery}>
+    <Main sx={StyledGallery}>
       <Box>
         <h1>Invaderz NFT Collection</h1>  
         <Box sx={StyledTabs}>
@@ -62,6 +66,8 @@ console.log("OWNED NFT INDEX", ownedNft)
         
         <GalleryGrid
           loading={loading}
+          contractAddress={contractAddress}
+          chainId={chainId}
           gallery={gallery}
           ownedNft={ownedNft}
           defaultView={defaultView}
@@ -85,7 +91,7 @@ console.log("OWNED NFT INDEX", ownedNft)
           nftIndex={nftIndex}
           />
       }
-    </Box>
+    </Main>
   );
 }
 

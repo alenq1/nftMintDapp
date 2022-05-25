@@ -16,10 +16,10 @@ export const StyledAdminPanel = {
       lmobile: "column",
       tablet: "row"
     },
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
     justifyContent: {
       lmobile: "center",
-      tablet: "space-between"
+      tablet: "space-around"
     },
     alignItems: "flex-start",
     gap: 1,

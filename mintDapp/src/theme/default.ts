@@ -104,6 +104,22 @@ const theme = createTheme({
         desktop: 1200,
       },
     },
+    components:{
+      MuiButton:{
+        styleOverrides:{
+          root:{
+            background: "green"
+          }
+        }
+      },
+      MuiSwitch:{
+        styleOverrides:{
+          // root:{
+          //   background: "green"
+          // }
+        }
+      }
+    }
   });
 
 export {appStyle, theme}

@@ -25,6 +25,9 @@ export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     
     backgroundColor: "transparent",
     width: "40%",
+    [theme.breakpoints.down('tablet')]: {
+      width: "100%",
+    },
 
     // filter: "blur(0px)"
 
@@ -88,6 +91,7 @@ export const StyledNftDetail = {
     // display: "flex",
     // justifyContent: "center",
     // alignItems: "center",
+    width: "100%",
     padding: 3,
     // background:" rgba(255, 255, 255, 0.19)",
     // borderRadius: "16px",

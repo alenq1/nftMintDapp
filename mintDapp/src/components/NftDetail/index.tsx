@@ -61,9 +61,7 @@ export default function NftDetail({open, handleClose, gallery, nftIndex}: any) {
         </DialogContent>
         <DialogActions sx={cardButtons}>
           <Button  autoFocus onClick={
-            ()=> {window.location.replace(
-              `https://testnets.opensea.io/assets/mumbai/0xbc8e37baff05e62739bda4b8d2187e39f105edab/${nftIndex+1}`
-              )
+            ()=> {window.open(nftData.opensea, '_blank', 'noopener,noreferrer');
                 return null;
               }        
           }>

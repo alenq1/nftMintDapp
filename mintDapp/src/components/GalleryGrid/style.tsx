@@ -9,13 +9,26 @@ interface ViewType {
 export const StyledGalleryGrid = {
     padding: 10,
     display: "grid",
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: {
+        lmobile: 'repeat(1, 1fr)',
+        tablet: 'repeat(2, 1fr)',
+        laptop: 'repeat(3, 1fr)'
+    },
     gridTemplateRows: "auto",
     gridAutoFlow: "row",
     gap: 10
 
 
 }
+
+export const EmptyGallery = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "50px"
+}
+
+
 
 
 // export const CollectionView = styled("div",{

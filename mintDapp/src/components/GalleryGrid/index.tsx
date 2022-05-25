@@ -1,4 +1,4 @@
-import {StyledGalleryGrid } from './style';
+import {StyledGalleryGrid, EmptyGallery } from './style';
 import { useEffect, useCallback, useState } from "react";
 import NftCard from '../../components/NftCard';
 import NftDetail from '../../components/NftDetail';
@@ -21,7 +21,19 @@ import Skeleton from '@mui/material/Skeleton';
 
 const GalleryGrid = (props: any) => {
 
-    const { loading, gallery, ownedNft, defaultView, handleClickOpen, open, nftIndex, setNftIndex, handleClose} = props
+    const { 
+      loading, 
+      contractAddress,
+      chainId,
+      gallery, 
+      ownedNft, 
+      defaultView, 
+      handleClickOpen, 
+      open, 
+      nftIndex, 
+      setNftIndex, 
+      handleClose
+    } = props
 
     // console.log("GLLLAERT GRIDDDDDDDDDDD HANDLE CLICKKKKKKKKKKKKK", handleClickOpen)
     console.log(loading,"LOADINGGGGGGGGG")
@@ -40,15 +52,8 @@ const GalleryGrid = (props: any) => {
     console.log("QIUEN ES SHOW NFTS",  showNfts)
 
     return (
-    <>
-      <Box sx={StyledGalleryGrid}>
-      {/* <Box sx={{display: "flex", flexDirection: "column", background: "whitesmoke"}}>
-          <div>loading {loading}</div>
-          <div>len gallery {gallery.length}        </div>
-          <div>len ownednft{ownedNft.length}</div>
-          <div>showNfts{showNfts.length > 0? showNfts[0].data.name : "nada"}</div>
-          <div>default view{defaultView ? "true": "false"}</div>
-        </Box> */}
+    
+      <Box sx={showNfts.length > 0 ? StyledGalleryGrid : EmptyGallery}>
         {
             loading === 'loaded' ?
               showNfts.length > 0 ?
@@ -67,11 +72,9 @@ const GalleryGrid = (props: any) => {
               :
               <div>Collection is empty</div>
             :
-            <div>cargando</div>
+            <div>loading</div>
         }          
       </Box>
-    </>
-
     );
   }
 
