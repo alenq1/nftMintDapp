@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 
 const AdminInfoCard = ({data}: any) => {
 
-  // console.log(data,  "DATA ADMIN INFO CARD")
-  // console.log(balance,  "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+  // console.log(data)
+  // console.log(balance)
     
   return (
     <>
@@ -23,7 +23,7 @@ const AdminInfoCard = ({data}: any) => {
           }
         </Box>
         :
-        <Box>Cargando</Box>
+        <Box>Loading</Box>
       }
     </>
   )

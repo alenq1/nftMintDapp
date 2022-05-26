@@ -18,8 +18,7 @@ const MintSection = () => {
   const isSoldOut =  mintNumbers.minted >= mintNumbers.maxSupply
   const allowToMint = contractState === 1 || contractState ===2 
   const defaultMintImage = "/"
-  // console.log(ethers.BigNumber.from('hello world'), "LIBRARRRRRRRYYYYYYY UTILSSSSSSSSS")
-  // console.log(mintNumbers, "LIBRARRRRRRRYYYYYYY UTILSSSSSSSSS", contractState, "CONTRACT STATE")
+  // console.log(mintNumbers, contractState)
 
   return (
     <Card sx={StyledMintSection}>      

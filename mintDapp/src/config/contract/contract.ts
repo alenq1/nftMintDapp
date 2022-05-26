@@ -3,15 +3,12 @@ const { default: contractJson} = await import ('./contract.json')
 
 const contractFileName = "NftMintStage"
 
-// console.log(contractJson, "CONTRACTJSONNNNNNNNNNNNNNNNNNNN")
-
+// console.log(contractJson)
 export const contractNetworks = Object.keys(contractJson).map(id => Number(id))
-
-
 
 export const chainMiscData =(chainId: Number,  address: string, indexToOpen: Number) => {
     
-    // console.log(chainId, address, indexToOpen, "AQQQQQQQQQQQQQQQQQQQQIIIIIIIIII")
+    // console.log(chainId, address, indexToOpen)
 
     const chainData = {
         "4": {            
@@ -28,18 +25,15 @@ export const chainMiscData =(chainId: Number,  address: string, indexToOpen: Num
         }
     }[chainId.toString() || "default" ]
 
-    // console.log("CHAIN DATA", chainData)
+    // console.log(chainData)
 
     return chainData
 }
 
 export const getContractAbiAddress = (chainId: Number) => {
-    // const address = contractJson[chainId][0].contracts[contractFileName].address
-    // const abi = contractJson[chainId][0].contracts[contractFileName].abi
     const { address, abi} = contractJson[chainId][0].contracts[contractFileName]
     // console.log(address, "ADDRRESS ")
     // console.log(abi, "ABI ")// 
-
     return{
         address,
         abi

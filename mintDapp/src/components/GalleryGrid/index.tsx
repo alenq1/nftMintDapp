@@ -35,21 +35,12 @@ const GalleryGrid = (props: any) => {
       handleClose
     } = props
 
-    // console.log("GLLLAERT GRIDDDDDDDDDDD HANDLE CLICKKKKKKKKKKKKK", handleClickOpen)
-    console.log(loading,"LOADINGGGGGGGGG")
-     // console.log("gallery", gallery, "owned_NFT", ownedNft)
-     let showNfts = defaultView ? gallery : ownedNft
-  
-    //  console.log("x2222222 COMO= COÑO ME ESTA LELGAN DO GALLERY AQUIIII", gallery)
-    // console.log("TIPO DE VISTA", defaultView, showNfts)
+    // console.log(handleClickOpen)
+    // console.log(loading,)
 
-    // useEffect(() => {
-    //     console.log("Q MALDITRA MIERDA ERES GALLERY", gallery)
-    //     console.log("Q MALDITRA MIERDA ERES SHOWNFT", ownedNft)
-    //     console.log("Q MALDITRA MIERDA ERES SHOWNFT", showNfts[0].data.name)
-    // }, [gallery, ownedNft, showNfts])
-  
-    console.log("QIUEN ES SHOW NFTS",  showNfts)
+    let showNfts = defaultView ? gallery : ownedNft
+    // console.log("gallery", gallery, "owned_NFT", ownedNft)
+    // console.log(, defaultView, showNfts)  
 
     return (
     
@@ -66,8 +57,7 @@ const GalleryGrid = (props: any) => {
                   key={index*5}
                   handleClickOpen={handleClickOpen}
                   defaultView={defaultView}
-                />
-          
+                />          
               )
               :
               <div>Collection is empty</div>

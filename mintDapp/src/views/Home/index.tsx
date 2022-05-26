@@ -7,10 +7,7 @@ import MintSection from "../../components/MintSection";
 import HeadLineDescription  from "../../components/HeadLineDescription";
 import ProjectInfo  from "../../components/ProjectInfo";
 import RoadMap  from "../../components/RoadMap";
-import Faq  from "../../components/Faq";
-import { useWeb3React } from "@web3-react/core";
-import { useContract } from "../../hooks/useContract";
-import useHomeState from "./utils";
+import Faq  from "../../components/Faq"
 import Main from '../../layouts/Main'
 
 

@@ -65,11 +65,11 @@ export  const useMintStages = () => {
         try {
             const tx = await contract.nextStage()  
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            // console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+            // console.log(tx,"TX")
             tx.wait().then((result: any) => {
                 setStage(stage +1)
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                // console.log(result, "RESULT WWWWWWWWWWWAAAAAAITTTT")
+                // console.log(result, "RESULT")
             })    
         } 
         catch (error) {

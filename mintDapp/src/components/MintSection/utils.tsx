@@ -40,7 +40,7 @@ export  const useMintState = () => {
         const maxMintPerWalletWhite: any = (await contract.maxMintPerWalletWhite()).toNumber()
         const maxMintPerWalletPublic: any = (await contract.maxMintPerWalletPublic()).toNumber()
 
-        // console.log(mintPricePublic, "MMMMMMMMMMMAXXXXXXXXXXXXXXXX SSSSSSSSSPPPPPPPPPPYYYYYY")
+        // console.log(mintPricePublic)
         setMintNumbers({
             minted: totalSupply,
             maxSupply,
@@ -53,13 +53,13 @@ export  const useMintState = () => {
 
     const getMintState = async() => {        
         const mintState: any = await contract.stage()   
-        // console.log(mintState, "STADO DESDE EL CONTRATO", parseInt(mintState), "PARSED")         
+        // console.log(mintState, parseInt(mintState), "PARSED")         
         setContractState(parseInt(mintState))        
     }
 
     const checkWhiteListed = async() => {        
         const getWhitelisted: any = await contract.whiteListedAddress(account)            
-        console.log(getWhitelisted, "getWhiteListed")
+        // console.log(getWhitelisted, "getWhiteListed")
         setIsWhiteListed(getWhitelisted)
     }
 
@@ -89,7 +89,7 @@ export  const useMintState = () => {
                 const valueToSend = (quantity * mintNumbers.mintPriceWhite).toString()
                 const tx =  await contract?.whiteMint(quantity, {value: ethers.utils.parseEther(valueToSend)})
                 enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-                // console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+                // console.log(tx,"TX" )
                 tx.wait().then((result: any) => {
                     setMintNumbers((state: any) => ({
                         ...state,
@@ -97,25 +97,25 @@ export  const useMintState = () => {
                     }))
                     enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash} `, {variant: 'success'})            
                     enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
-                    // console.log(result, "RESULT MINTT")
+                    // console.log(result, "RESULT")
                 })   
             } 
             catch (error) {
                 const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("data"))
-                // console.log(`ERROR WHITE MINT`, formatError)
-                // console.log(library.provider, "LIBRARYYYY ERRRRRORRRR")
+                // console.log(formatError)
+                // console.log(library.provider)
                 enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})
                 // enqueueSnackbar(`error: ${error?.data.message}`, {variant: 'error'})
             }
         }
         else if(contractState === 2){
-            console.log("else if publicactive")
+            // console.log("else if publicactive")
             try {
                 const valueToSend = (quantity * mintNumbers.mintPricePublic).toString()
                 const tx =  await contract?.publicMint(quantity, {value: ethers.utils.parseEther(valueToSend)})
                 // const tx =  await contract?.publicMint(quantity, {value: quantity * mintNumbers.mintPricePublic})
                 enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-                console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+                // console.log(tx,"TX" )
                 tx.wait().then((result: any) => {
                     setMintNumbers((state: any) => ({
                         ...state,
@@ -123,14 +123,14 @@ export  const useMintState = () => {
                     }))
                     enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash}`, {variant: 'success'})                    
                     enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
-                    console.log(result, "RESULT MINTT")
+                    // console.log(result, "RESULT")
                 })   
             } 
             catch (error) {
-                console.log(`ERROR PUBLIC MINT`, error.message)
+                // console.log(error.message)
                 const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("data"))
-                console.log(`ERROR WHITE MINT`, formatError)
-                console.log(library.provider, "LIBRARYYYY ERRRRRORRRR")
+                // console.log(formatError)
+                // console.log(library.provider)
                 enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})
                 // enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
             }
@@ -139,7 +139,7 @@ export  const useMintState = () => {
             enqueueSnackbar(`error: not allow to Mint`, {variant: 'error'})    
         }                    
     }
-    // console.log(contractState, "STATE ANTES DE MEINT SECTION INDEX")
+    // console.log(contractState)
 
     return {
         library, 

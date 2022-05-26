@@ -9,14 +9,14 @@ import Button from '../Button'
 
 const NftCard = (props: any) => {
 
-  // console.log(props.data , "QUES ES PRPOS  DATAA ahora si")
-  console.log(props.data ? true : false , "PROOSP DFATA?????????")
+  // console.log(props.data)
+  // console.log(props.data ? true : false)
   
   if(props.data){
     const {date, description, edition, image, name, owner, indexToOpen, explorer} = props.data
     const {handleClickOpen, index, status, defaultView} = props
-    // console.log("HANDEL CLICK OPEN", handleClickOpen)
-    console.log("ESTE ES EL VOY ABRIR", index)
+    // console.log(handleClickOpen)
+    // console.log(index)
     // const indexToOpen = defaultView ? index : edition
 
     const nftCardContent = [
@@ -50,7 +50,7 @@ const NftCard = (props: any) => {
             </Typography>  
             {
               nftCardContent.map( (item: any)=>
-                <Box sx={nftInfo}>
+                <Box sx={nftInfo} key={uuidv4()}>
                   <Typography variant="body2" color="text.secondary">
                     <strong>{item.text}</strong> <span>{item.value}</span>
                   </Typography>  

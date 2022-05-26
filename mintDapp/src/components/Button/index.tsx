@@ -1,17 +1,25 @@
 import Button from '@mui/material/Button';
 import {StyledButton} from "./style"
 
-const ButtonApp = (props: any) => {
+interface IButton {
+  action: any,
+  disabled: boolean,
+  styled: any,
+  text: string
+}
 
-  
+const ButtonApp = (props: IButton) => {
+
+  const {action, disabled, styled, text} = props
+
   return (
     <StyledButton 
       variant="contained" 
-      onClick={props.action}
-      disabled={props.disabled}
-      sx={props.styled}
+      onClick={action}
+      disabled={disabled}
+      sx={styled}
     >
-      {props.text}
+      {text}
     </StyledButton>
     )
 };

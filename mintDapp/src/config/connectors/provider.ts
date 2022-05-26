@@ -2,7 +2,6 @@ import {ethers} from 'ethers'
 import { InjectedConnector } from "@web3-react/injected-connector";
 import {contractNetworks} from '../contract/contract'
 
-
 // console.log(contractNetworks, "CONTRACT NETWORKS")
 
 const connector = new InjectedConnector({

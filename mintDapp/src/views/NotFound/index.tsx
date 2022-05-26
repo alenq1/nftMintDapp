@@ -1,11 +1,11 @@
 import { Box} from '@mui/system';
-import {StyledMain} from './style';
+import {StyledNotFound} from './style';
 
 const NotFound = () => {
 
   return (
 
-  <Box sx={StyledMain} >    
+  <Box sx={StyledNotFound} >    
    404 NOT FOUND 
   </Box>
 

@@ -26,11 +26,11 @@ const MenuLinks = ({smallView}: boolean) => {
       smallView ?
       <>
         <IconButton
-           id="basic-button"
-           aria-controls={open ? 'basic-menu' : undefined}
-           aria-haspopup="true"
-           aria-expanded={open ? 'true' : undefined}
-           onClick={handleClick}
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
         >
           <MenuIcon/>
         </IconButton>

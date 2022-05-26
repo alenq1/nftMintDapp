@@ -39,24 +39,21 @@ export const useGalleryState = () => {
         if(contract !==null && gallery.length === 0){
             setLoading('loading')
             
-            console.log(contract, "CIONTRACT UTILS GALLERY")
+            // console.log(contract)
             const contractAddress = contract.address
             const totalSupply: any = await contract?.totalSupply()
             const balanceOf: any = await contract?.balanceOf(account)
-            const tempArray: any[] = Array.from({length: totalSupply}, (_, i) => i + 1)
-            // let secondArray: any[] = []
-            // let tempArray: any[] = []
-            console.log("TEMP_ARRAY", tempArray)
+            const tempArray: any[] = Array.from({length: totalSupply}, (_, i) => i + 1)    
+            // console.log(tempArray)
 
-            
             const secondArray = await Promise.allSettled (tempArray.map(async (index)=>{     
                 const ownerOf: any = await contract?.ownerOf(index)
                 const tokenURI = await contract?.tokenURI(index)
                 let result = {data: ""}
-                // console.log(tokenURI, "TOOKEEEEEENN URIIII")
+                // console.log(tokenURI)
                 // const formatURI = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/').replace(".json", "").slice(0,tokenURI <9 ? -1 : -2)
                 const formatURI = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/')
-                // console.log(formatURI,"FORMATED URI")
+                // console.log(formatURI)
                 await axios.get(formatURI)
                 .then((response)=>{
                     const miscData: any = chainMiscData(chainId, contractAddress, index)
@@ -64,39 +61,36 @@ export const useGalleryState = () => {
                     response.data.indexToOpen = index - 1
                     response.data.opensea = miscData.opensea
                     response.data.explorer = miscData.explorer
-                    console.log("RESPOINSE A PEGAR",tokenURI, response.data)
-                    // setGallery( (state: any) => state.concat(response.data))
-                    // result.push(response.data)
+                    // console.log(tokenURI, response.data)                    
                     result.data = response.data
-                    // console.log("SE ESTA LLENANDO EL MALDITO SENDO ARRAY?",tokenURI, secondArray)
+                    // console.log(tokenURI, secondArray)
                 })
                 .catch((error) => {
                     console.log("ERROR TOKEN URI",error)
                     setLoading('failed')
                 
                 })
-                console.log("QUIEN EN RESULT ANTES DE CONVERTIRSE", result)            
+                // console.log(result)            
                 return result
             }))
-            console.log("QUE OÑOP PASA EN TEMNP ARRAY Y GALLERY", tempArray, secondArray)
+            // console.log(tempArray, secondArray)
             setGallery(secondArray)
-            console.log("GALLERY",gallery, "OWNEDNFT",ownedNft)
+            // console.log("GALLERY",gallery, "OWNEDNFT",ownedNft)
             setLoading('loaded')                    
         } 
     }
 
 
     const showOnlyOwned = useCallback (() => {
-        // console.log("GALLERY EN showOnlyOwned", gallery)            
-        // console.log("showOnlyOwned", ownedNft)            
+        // console.log(gallery)            
+        // console.log(ownedNft)            
             setOwnedNft(gallery.filter( (item) => item.value.data.owner === account))    
-    },[gallery, ownedNft, account])
-    
-    // console.log("defaultView IN CATEGORY", defaultView)
-    // console.log("galleryCAHNGED?", gallery)
+    },[gallery, ownedNft, account])    
+        // console.log(defaultView)
+        // console.log(gallery)
 
     const handleClickOpen = (index: any) => {
-        console.log("ME PISARON PA ABRIR ", index)
+        // console.log(index)
         setOpen(true);
         setNftIndex(index)
     };
@@ -108,30 +102,28 @@ export const useGalleryState = () => {
 
 
     useEffect(() => {        
-        // console.log("CONTRACT, ACCOUNT ACTIVE", contract,account, active)    
-        // console.log("LOADING EN USE EFFECT", loading)
-        console.log("ANTES EL GALLERY INFO", loading)
+        // console.log(contract,account, active)    
+        // console.log(loading)        
         getGalleryInfo()
-        console.log("DESPUES DE GALLERY INFO", gallery)            
-        
+        // console.log(gallery)                
     }, [contract])
 
     useEffect(() => {
         if(!defaultView){
             showOnlyOwned()
         }
-        console.log("defaultView IN CATEGORY", defaultView)
+        // console.log(defaultView)
     }, [defaultView])
 
     useEffect(() => {        
-        // console.log("CONTRACT, ACCOUNT ACTIVE", contract,account, active)    
-        // console.log("LOADING EN USE EFFECT", loading)
+        // console.log(contract,account, active)    
+        // console.log(loading)
         if(!defaultView){
             showOnlyOwned()
         }
     }, [account])
 
-    console.log("gallery antes de devolver utils", gallery)
+    // console.log(gallery)
     
     return {
         loading,

@@ -13,7 +13,7 @@ export const useAdminCollectionState = () => {
     const {contract} = useContract()    
     const { enqueueSnackbar } = useSnackbar();
 
-    // console.log(contract, "CONTRACT ADMINNNNNNNNNNNNNNNNNNNNNNNNNnnn")
+    // console.log(contract)
 
     const [loading, setLoading] = useState(false)
     const [contractDetails, setContractDetails] = useState<any>({})
@@ -42,13 +42,13 @@ export const useAdminCollectionState = () => {
 
             const contractRawBalance = await library?.getBalance(contract.address)
             const contractCleanBalance = parseFloat(ethers.utils.formatEther(contractRawBalance))
-            // console.log(contractCleanBalance, "BALANCCCCCCCE LIMIPIIIIIIIIIIIOOOOOOOOOOOO")
+            // console.log(contractCleanBalance)
             setContractBalance(contractCleanBalance)            
         }
         return 0
     }
 
-    // console.log(contract.address, "CONTRACT ADMINNNNNNNNNNNNNNNNNNNNNNNNNnnn")
+    // console.log(contract.address)
     
     const getContractDetails = useCallback (async(contractA: any) => {
         
@@ -115,17 +115,16 @@ export const useAdminCollectionState = () => {
         setFields((state) => ({
             ...state,
             [name]: value
-    }))
-
+        }))
     };
 
-    // console.log("DATA EN AD MIN FORM", data)
+    // console.log(data)
 
     const handleSwitch = async(event: React.ChangeEvent<HTMLInputElement>) => {
 
         const {name, checked} = event.target
 
-        // console.log("%cESTA ES EL SWITCH", "color: white; background-color: #26bfa5;", name)
+        // console.log("%colored console log", "color: white; background-color: #26bfa5;", name)
         const getContractField = name === 'setPause' ? 'isPaused' : 'burnEnabled'
 
         try {
@@ -152,11 +151,11 @@ export const useAdminCollectionState = () => {
         try {
             const tx = await contract.withdraw()
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            console.log(tx,"TX" )
+            // console.log(tx,"TX" )
             tx.wait().then((result: any) => {
                 setContractBalance(0)
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                console.log(result, "RESULT")
+                // console.log(result, "RESULT")
             })    
         } 
         catch (error) {
@@ -166,17 +165,17 @@ export const useAdminCollectionState = () => {
 
     const setMaxQuantity = async(value: any, name: any) => {
 
-        // console.log(name,'NAME SET MAX QUANTITY RESULT')
+        // console.log(name)
         if(name ==='setMintPrices'){
             value[0] = ethers.utils.parseEther(value[0].toString())
             value[1] = ethers.utils.parseEther(value[1].toString())
-            console.log(value[0], value[1], "VALUES FORMATEODOS")
+            // console.log(value[0], value[1])
         }
-        console.log(value[0], value[1], "VALUES ANTEds DE TX")
+        // console.log(value[0], value[1])
         try {
             const tx = await contract[name](value[0], value[1])  
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            console.log(tx,"TX" )
+            // console.log(tx,"TX" )
             tx.wait().then((result: any) => {
                 setContractDetails((state: any) => ({
                     ...state,
@@ -184,7 +183,7 @@ export const useAdminCollectionState = () => {
                     [name === 'setMintPrices' ? 'mintPricePublic' : 'maxMintPerWalletPublic']: value[1]
                 }))
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                console.log(result, "RESULT")
+                // console.log(result, "RESULT")
             })    
         } 
         catch (error) {
@@ -194,7 +193,7 @@ export const useAdminCollectionState = () => {
 
     const send = async(value: any, name: any) => {
 
-        console.log("QUE ENVIO", value, name, account)
+        // console.log(value, name, account)
 
         let action: any;
 
@@ -234,7 +233,7 @@ export const useAdminCollectionState = () => {
             action = name
         }
             
-        console.log(action, value, "ESTO ES SEND CALL")
+        // console.log(action, value)
         try {
             const tx = await contract[action](
                 name === "addAddressToWhitelist"?
@@ -243,14 +242,14 @@ export const useAdminCollectionState = () => {
                 value
             )  
             enqueueSnackbar(`transaction send: ${tx.hash} `, {variant: 'info'})
-            console.log(tx,"TTTTTTTTTTTTTTXXXXXXXXXXXXXX" )
+            // console.log(tx,"TX")
             tx.wait().then((result: any) => {
                 setContractDetails((state: any) => ({
                     ...state,
                     [name]: value
                 }))
                 enqueueSnackbar(`transaction confirmed: ${name} check on:${result.blockHash}`, {variant: 'success'})            
-                console.log(result, "RESULT WWWWWWWWWWWAAAAAAITTTT")
+                // console.log(result, "RESULT")
             })    
         } 
         catch (error) {
@@ -265,26 +264,23 @@ export const useAdminCollectionState = () => {
         if(contract){
             
             const contractDetailsTemp= getContractDetails(contract)    
-            // console.log( await contractDetailsTemp, "CONTRACT DETAILS TTTTTTTTTTTEEEEEEEEEEEEEEMMMMMMMMMMMPPPPPPPPPPP")    
+            // console.log( await contractDetailsTemp)    
             contractDetailsTemp.then(response => {
                 response.address = contract.address
                 setContractDetails(response)
-                // console.log("CONTRACT DETAILS LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", response)
-            })
-            
+                // console.log(response)
+            })            
         }
         else{
             setContractDetails({})
         }
         
         getContractBalance()
-        setLoading(false)
-
-        
+        setLoading(false)        
         
     }, [getContractDetails, chainId, contract])
   
-    console.log(contractDetails, "DDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEETAILASSSSSSSSSSSs")
+    // console.log(contractDetails)
     // console.log(contract.address, "CONTRACT RAWWWWWWW")
     
     const formattedContDetail = [

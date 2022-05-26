@@ -35,33 +35,16 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
 
 /// ***********WITH IMAGE
 // backgroundImage: `url(${Image})`,
-
-
 // filter: "blur(1px)",  
-  
-
-//STYLE CONFOILCT from
-// backgroundSize: "contain",
-  minHeight: '100vh',
-  // minwidth: '100vw',
-  // display: 'grid',  
-  // gridTemplateRows: 'auto 1fr auto',
-  
-  //STYLE DEBUGGED
-  display: "flex",
-  flexDirection: "column",
-  padding: 0,
-  //overflow: "hidden"
-
-
-
-
+    //overflow: "hidden"
   // width: "100%",
   // height: "100vh",
   // gap: 1,
-  
-  
   // overflow: 'auto',
+  minHeight: '100vh',
+  display: "flex",
+  flexDirection: "column",
+  padding: 0,
 
 
 }

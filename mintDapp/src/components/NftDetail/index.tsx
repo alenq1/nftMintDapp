@@ -10,9 +10,10 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function NftDetail({open, handleClose, gallery, nftIndex}: any) {
 
-  console.log("COMO ES LA VAINA AQUI GALERY", gallery[nftIndex].value.data, nftIndex)
+  // console.log(gallery[nftIndex].value.data, nftIndex)
   const nftData = gallery[nftIndex].value.data 
-  // console.log("COMO ES LA VAINA AQUI GALERY", nftData.attributes, nftIndex)
+  // console.log(nftData.attributes, nftIndex)
+
   return (
     <Box sx={StyledNftDetail}>
       <BootstrapDialog
@@ -24,13 +25,12 @@ export default function NftDetail({open, handleClose, gallery, nftIndex}: any) {
           {nftData.name}
         </BootstrapDialogTitle>
         <DialogContent dividers>
-            <Box sx={imgNftDetail}>
-            <img              
-              alt={nftData.name}
-              src={nftData.image.replace('ipfs://', 'https://ipfs.io/ipfs/')}
-            />
-            </Box>
-            
+          <Box sx={imgNftDetail}>
+          <img              
+            alt={nftData.name}
+            src={nftData.image.replace('ipfs://', 'https://ipfs.io/ipfs/')}
+          />
+          </Box>            
           <Box sx={StyledNftDetail}>
             <Typography gutterBottom>
                 Description: {nftData.description}
@@ -47,25 +47,24 @@ export default function NftDetail({open, handleClose, gallery, nftIndex}: any) {
           {
             nftData.attributes.length > 0 &&
             nftData.attributes.map((item: any) => 
-              <Box sx={StyledAttribs}>
-                  <strong key={uuidv4()}>                    
+              <Box sx={StyledAttribs} key={uuidv4()}>
+                  <strong>                    
                     {item.trait_type}                  
                   </strong>                
                   <span>
                     {item.value}
                   </span>
               </Box>
-                )
+            )
           }   
           </Box>
         </DialogContent>
         <DialogActions sx={cardButtons}>
-          <Button  autoFocus onClick={
-            ()=> {window.open(nftData.opensea, '_blank', 'noopener,noreferrer');
-                return null;
-              }        
-          }>
-            See OpenSea
+          <Button  autoFocus onClick={()=> {
+            window.open(nftData.opensea, '_blank', 'noopener,noreferrer');
+            return null;
+          }}>
+          See OpenSea
           </Button>
         </DialogActions>
       </BootstrapDialog>

@@ -36,7 +36,7 @@ const useWalletInfo = () => {
 
         activate(connector)
         localStorage.setItem('isWalletConnected', 'true')
-        console.log("isUnsupported", isUnSupportedChain, "ACCCOUNTT", account)
+        // console.log("isUnsupported", isUnSupportedChain, "ACCCOUNTT", account)
 
     }
 

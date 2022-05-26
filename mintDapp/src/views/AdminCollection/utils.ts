@@ -5,19 +5,19 @@ import { useContract } from "../../hooks/useContract";
 
 export const useAdminCollectionState = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const {active, account} = useWeb3React()
-    // const [gallery, setGallery] = useState<any[]>([])
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
-    // const [currentAccount, setCurrentAccount] = useState(account)
-    // const [defaultView, setDefaultView] = useState<boolean>(true)
     const {contract} = useContract()
-    // console.log(contract, "EEEEEESSSSSSSSSS CIONTRATTTTTTTTTTO")
+    // const [gallery, setGallery] = useState<any[]>([])    
+    // const [currentAccount, setCurrentAccount] = useState(account)
+    // const [defaultView, setDefaultView] = useState<boolean>(true)    
+    // console.log(contract)
 
     const checkAdminAccount = useCallback (async() => {
         
         const isAdmin: any = await contract?.owner()
-        // console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIS  ADMIN", isAdmin)
+        // console.log(isAdmin)
         setIsAdmin(isAdmin === account)            
     }, [contract, account, isAdmin, active])
     

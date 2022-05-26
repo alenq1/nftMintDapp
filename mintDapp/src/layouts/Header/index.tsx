@@ -1,7 +1,5 @@
 import { Box} from '@mui/system';
 import {MenuLinks, StyledHeader, BoxLogo, Wallet} from './style';
-
-
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Logo from "../../components/Logo"; 
@@ -16,7 +14,7 @@ const Header = () => {
   const theme = useTheme();
   const smallView = useMediaQuery(theme.breakpoints.down('tablet'));
 
-  console.log(smallView, "MATCVHES QUERY")
+  // console.log(smallView)
   return( 
   <Box sx={StyledHeader}>
     <Box sx={BoxLogo}>
@@ -25,23 +23,11 @@ const Header = () => {
         />
     </Box>
     <Box sx={MenuLinks}>
-      {
-        // matches ?
-
-        // <IconButton>
-        //   <Menu smview={matches}/>
-        // </IconButton>
-
-        // :
-        <Menu smallView={smallView}/>
-
-      }
-      
+        <Menu smallView={smallView}/>      
     </Box>
     <Box sx={Wallet}>
       <WalletInfo/>
     </Box>
-    
   </Box>
 
   )

@@ -24,7 +24,7 @@ const  AdminForm = (props: any) => {
         withdraw        
     } = props
 
-    // console.log("ADMIN FOOOOOOOOOORRRRRRRRRRMMMMMMMMMM CONTRACT DETAILS", contractDetails)
+    // console.log(contractDetails)
 
     const {
         uri, 
@@ -38,12 +38,12 @@ const  AdminForm = (props: any) => {
         mintPriceWhitelist
     } = contractDetails
 
-    // console.log("CONTRACT DETAILS", contractDetails)
+    // console.log(contractDetails)
 
     const uriAction = contractDetails.stage === 0 ? "setBaseUri" : "revealURI"
 
     // console.log(
-    //     "%cESTE ES ESTADO ",
+    //     "%colored console log",
     //     "background: green; color: white; display: block;", contractDetails.stage
     //   );
   return (

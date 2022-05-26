@@ -32,16 +32,11 @@ const Gallery = () => {
   } = useGalleryState()
   
 
-
-
-// console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
-// console.log("handleCLICK OPEN EN INDEXXXXXXXXXXXXXXXXXXXXXXXXXx", handleClickOpen)
-console.log("NFT INDEXX", nftIndex)
-console.log("LOADING", loading)
-console.log("GALLLERY EN INDEX", gallery)
-console.log("OWNED NFT INDEX", ownedNft)
-
-
+// console.log(handleClickOpen)
+// console.log(nftIndex)
+// console.log(loading)
+// console.log(gallery)
+// console.log(ownedNft)
 
   return (
     <Main sx={StyledGallery}>
