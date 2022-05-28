@@ -1,5 +1,5 @@
 const { ethers, deployments, getNamedAccounts } = require('hardhat')
-
+const config = require('../configProject')
 const contractInitFixture = deployments.createFixture(
     async ({ deployments, getNamedAccounts, ethers }, options) => {
       // Edit: This is not neeeded as it got called through getDeployedContracts below
@@ -30,14 +30,13 @@ const contractInitFixture = deployments.createFixture(
 
 async function getDeployedContracts() {
     // Ensures the deployment is executed and reset (uses evm_snapshot for faster tests)
-    const deployedContracts = await deployments.fixture(['NftMintStage'])
-  
-    // console.log(deployedContracts, "DEPLOYED CONTRActs")
+    const deployedContracts = await deployments.fixture([config.contractName])
+
     // Instantiated contracts in the form of a ethers.js Contract instance
     const contract = 
-       await ethers.getContractAt(
-        'NftMintStage',
-        deployedContracts.NftMintStage.address        
+      await ethers.getContractAt(
+        config.contractName,
+        deployedContracts[config.contractName].address        
       )
     const accounts = await getNamedAccounts()
     const signers = await ethers.getSigners()
