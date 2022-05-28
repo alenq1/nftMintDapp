@@ -12,8 +12,8 @@ export const StyledHome = {
 }
 
 export const Stages = {
-  margin: "0px",
-  height: "100vh",    
+  margin: "0px 0px 30px 0px",
+  // height: "100vh",    
   width: "100%",
   display: "flex",
   // flexDirection: "row",
@@ -26,16 +26,20 @@ export const Stages = {
 }
 
 export const Descriptions = {
-  margin: "0px 0px 30px 0px",
-  height: "100vh",    
+  margin: {
+    lmobile: 0,
+    tablet: "20px 0px"
+  },
+  // height: "100vh",    
   width: "100%",
   display: "flex",
+  
   flexDirection: {
     lmobile: "column",
     tablet: "row"
   },
   alignItems: "center",
-  justifyContent: "space-around"
+  justifyContent: "space-evenly"
 
 
 }

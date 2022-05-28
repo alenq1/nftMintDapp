@@ -28,7 +28,15 @@ export const OtherDescriptions = {
     backgroundSize: "contain",
 
     '& img':{
-        width: "50%"        
+        marginTop: {
+            lmobile: 10,
+            tablet: 0
+        },
+        width: "50%",
+        padding: {
+            lmobile: 0,
+            tablet: 10
+        }
     }
 
 }

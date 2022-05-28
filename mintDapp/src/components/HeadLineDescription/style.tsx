@@ -13,7 +13,11 @@ export const headLineContent = {
 
 export const StyledHeadLineDescription = {
   padding: 3,
-  width: "30em",
+  width: {
+    lmobile: "80%",
+    tablet: "40%",
+  },
+
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",

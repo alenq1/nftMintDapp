@@ -44,6 +44,7 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
   minHeight: '100vh',
   display: "flex",
   flexDirection: "column",
+  justifyContent: "flex-start",
   padding: 0,
 
 

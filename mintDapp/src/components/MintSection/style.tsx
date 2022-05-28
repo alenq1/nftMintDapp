@@ -25,11 +25,11 @@ export const mintText = {
 
 
 export const StyledMintSection = {
-  height: "auto",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
+  height: "auto",
   background:" rgba(255, 255, 255, 0.19)",
   borderRadius: "16px",
   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -44,12 +44,12 @@ export const StyledCardImage =  {
   height: {
     // lmobile: "90%",
     tablet: "100%",
-    laptop:  500
+    laptop:  225
   },
   width: {
     // lmobile: "90%",
     tablet: "100%",
-    laptop:  500
+    laptop:  250
   },
   padding: 10,
   background: `url(https://i.gifer.com/YzM9.gif)`,
@@ -61,4 +61,10 @@ export const StyledCardText = {
   display: "flex",
   justifyContent: "center",
   margin: 0  
+}
+
+export const MintButtons = {
+  display:'flex', 
+  justifyContent: "space-around",
+  width: "100%"
 }

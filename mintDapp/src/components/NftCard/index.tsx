@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import Button from '../Button'
+import { v4 as uuidv4 } from "uuid";
 
 const NftCard = (props: any) => {
 

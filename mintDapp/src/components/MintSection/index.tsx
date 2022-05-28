@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { contentArray, StyledMintSection, StyledCardText, StyledCardImage, mintText } from "./style";
+import { contentArray, StyledMintSection, StyledCardText, StyledCardImage, mintText, MintButtons } from "./style";
 import { useMintState } from "./utils";
 import Carousel from 'react-material-ui-carousel'
 import { v4 as uuidv4 } from "uuid";
@@ -65,7 +65,7 @@ const MintSection = () => {
           }
         </Typography>
       </CardContent>
-      <CardActions>      
+      <CardActions sx={MintButtons}>      
         <QuantityCounter   
             value={quantity} 
             setValue={setQuantity} 
@@ -79,7 +79,7 @@ const MintSection = () => {
               0
             }
 
-            color={"red"}
+            color={"green"}
             disabled={!contract || isSoldOut || !allowToMint}
         />
         <Button text={mintButton} action={mint} disabled={!contract || isSoldOut || !allowToMint}/>

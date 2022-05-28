@@ -15,18 +15,18 @@ export const QuantityContainer = styled("div")({
 
 const QuantityButton = styled("button")({
     padding:"0px !important",
-    height:"40px",
+    height:"30px",
     maxwidth: "35px",
     width: "34.8px",
-    border: "2px solid #E2E2E2",
-    background:"transparent",
+    // border: "2px solid #E2E2E2",
+    background:"green",
     color: "#E2E2E2",
     fontWeight: "bold",
     outline:"none",
     fontSize: `${commonSize}`,
     "&:active":{
-        color: "red",
-        border: "2px solid red",
+        color: "green",
+        border: "2px solid green",
     }
 })
     
@@ -47,7 +47,7 @@ export const Quantity = styled("input")({
     WebkitAppearance: "none",
     margin: "0px",
     width: "53px",
-    height: "36px",
+    height: "30px",
     border: "2px solid #E2E2E2",
     borderLeft: "0px",
     borderRight: "0px",
@@ -55,12 +55,13 @@ export const Quantity = styled("input")({
     outline: " none",
     display: " flex",
     fontSize: `${sizeFigma}`,
+    fontFamily: "inherit",
     paddingTop: "8px",
     textAlign: "center",
     padding: "0px !important",
     "&:focus":{
         outline: "0 none",
-        border: "2px solid red",
+        border: "2px solid green",
         
     },
     "&::-webkit-inner-spin-button": {
