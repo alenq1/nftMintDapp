@@ -21,7 +21,10 @@ export const StyledAdminPanel = {
       lmobile: "center",
       tablet: "space-around"
     },
-    alignItems: "flex-start",
+    alignItems: {
+      lmobile: "center",
+      tablet: "flex-start"
+    },
     gap: 1,
     margin: "5em 0em"
   

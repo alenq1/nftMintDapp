@@ -21,9 +21,9 @@ const AdminCollection = () => {
       </>
       :
       active && !isAdmin ?
-      <div>OnlyAccesAdmin</div>
+      <Box>OnlyAccesAdmin</Box>
       :
-      <div>Please connect Wallet</div>
+      <Box>Please connect Wallet</Box>
 
     }
   </Main>

@@ -1,6 +1,6 @@
 module.exports  = {
     
-    path: './contracts',
+    contractsFolder: './contracts',
     //contract
     contractName: "NftMintStage",
     nftTokenName: "Pixel Invaderz",

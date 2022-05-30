@@ -17,7 +17,7 @@ const ButtonApp = (props: IButton) => {
       variant="contained" 
       onClick={action}
       disabled={disabled}
-      sx={styled}
+      sx={styled ? styled : ''}
     >
       {text}
     </StyledButton>

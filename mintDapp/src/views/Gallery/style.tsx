@@ -1,4 +1,5 @@
 import { styled } from '@mui/system';
+import Tabs from '@mui/material/Tabs';
 
 
 export const StyledGallery = {
@@ -16,22 +17,45 @@ export const StyledGallery = {
 
 }
 
-export const StyledTabs = {  
+
+
+export const StyledTabs = styled(Tabs)({
+  // borderBottom: '1px solid #e8e8e8',
   color: "black",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  '& button':{
-    fontSize: "1.25rem",
-    color: "black"
+  '& .MuiTabs-indicator': {
+    backgroundColor: 'green',
+    color: 'green'
   },
-  '& button:focus, & button:active':{    
-    color: "green !important",    
+  '& .Mui-selected': {
+    // backgroundColor: 'red',
+    color: 'green'
   },
-  '& span:focus, & span:active':{    
-    color: "green !important"
-  }
-}
+  '& .Mui-focusVisible': {
+    backgroundColor: 'brown',    
+  },
+
+});
+
+
+// export const StyledTabs = {  
+//   color: "black",
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "center",
+//   '& button':{
+//     fontSize: "1.25rem",
+//     color: "black"
+//   },
+//   '& button:focus, & button:active':{    
+//     color: "green !important",    
+//   },
+//   '& span:focus, & span:active':{    
+//     color: "green !important"
+//   }
+// }
 
 
 export const StyledSkeleton = {

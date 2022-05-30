@@ -42,11 +42,11 @@ const Gallery = () => {
     <Main sx={StyledGallery}>
       <Box>
         <h1>Invaderz NFT Collection</h1>  
-        <Box sx={StyledTabs}>
-        <Tabs  value={defaultView ? 0 : 1} onChange={handleChange} aria-label="basic tabs example">
+        <Box>
+        <StyledTabs  value={defaultView ? 0 : 1} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Full Collection"/>
           <Tab label="My Collection"/>
-        </Tabs>
+        </StyledTabs>
         </Box>
       </Box>
       { 

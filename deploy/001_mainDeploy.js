@@ -6,7 +6,7 @@ const { utils } = require('ethers');
 const config = require('../configProject');
 
 const {
-  path, 
+  contractsFolder, 
   nftTokenName,
   nftTokenSymbol,
   maxSupply,
@@ -16,7 +16,7 @@ const {
   mintPricePublic
 } = config
 
-let files = fs.readdirSync(config.path)
+let files = fs.readdirSync(contractsFolder)
 const contractName = path.parse(files[0]).name
 
 module.exports = async ({getNamedAccounts, deployments}) => {

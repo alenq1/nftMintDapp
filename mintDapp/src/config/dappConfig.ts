@@ -8,3 +8,8 @@ export const dappConfig = {
     projectInfoBg: `url(${BackgroundPix})`
 
 }
+
+// unrevealed
+// ipfs://QmUkuNz8pfFiZnAB6DgdXk3YAuLVZAHUb9yEP97qJbbTPz/
+//metadata
+// ipfs://QmdbFkEehaeBawyNvRG6UEDNBhMe4m4uobEPwD84jPraYd/

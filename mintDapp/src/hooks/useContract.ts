@@ -30,9 +30,3 @@ export const useContract = () => {
     return {contract}
 
 }
-
-// 0x346051D574092f0BcD437d9B107e7D3A37B95184, 0xA4A4c38b3b590e41B00dECD9854990200127bEAC, 0xc3bf024C9503CFDE091594F8bdc4eDDcfcE43Ba8
-// unrevealed
-// ipfs://QmUkuNz8pfFiZnAB6DgdXk3YAuLVZAHUb9yEP97qJbbTPz/
-//metadata
-// ipfs://QmdbFkEehaeBawyNvRG6UEDNBhMe4m4uobEPwD84jPraYd/

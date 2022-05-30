@@ -3,7 +3,7 @@ import { useContract } from "../../hooks/useContract";
 import { useWeb3React } from "@web3-react/core";
 import {ethers} from "ethers"
 import { useSnackbar } from 'notistack';
-
+import {actionToast} from '../../components/Toast'
 
 interface IMintNumbers { 
     minted: any,
@@ -95,17 +95,23 @@ export  const useMintState = () => {
                         ...state,
                         minted: quantity + state.minted
                     }))
-                    enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash} `, {variant: 'success'})            
-                    enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
+                    enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash} `, {
+                        variant: 'success',
+                        autoHideDuration: 3000,
+                        actionToast
+                    })            
+                    // enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
                     // console.log(result, "RESULT")
                 })   
             } 
             catch (error) {
-                const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("data"))
-                // console.log(formatError)
-                // console.log(library.provider)
-                enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})
-                // enqueueSnackbar(`error: ${error?.data.message}`, {variant: 'error'})
+                // console.log(error.message)
+                const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("method"))
+                // console.log(formatError)                
+                chainId == 4 ?
+                enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})                
+                :
+                enqueueSnackbar(`error: ${error?.data.message}`, {variant: 'error'})
             }
         }
         else if(contractState === 2){
@@ -121,18 +127,24 @@ export  const useMintState = () => {
                         ...state,
                         minted: quantity + state.minted
                     }))
-                    enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash}`, {variant: 'success'})                    
-                    enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
+                    enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash}`, 
+                    {
+                        variant: 'success',
+                        autoHideDuration: 3000,
+                        actionToast
+                    })                    
+                    // enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
                     // console.log(result, "RESULT")
                 })   
             } 
             catch (error) {
                 // console.log(error.message)
-                const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("data"))
-                // console.log(formatError)
-                // console.log(library.provider)
-                enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})
-                // enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
+                const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("method"))
+                // console.log(formatError)                
+                chainId == 4 ?
+                enqueueSnackbar(`error: ${formatError}`, {variant: 'error'})                
+                :
+                enqueueSnackbar(`error: ${error?.data.message}`, {variant: 'error'})
             }
         }
         else {
