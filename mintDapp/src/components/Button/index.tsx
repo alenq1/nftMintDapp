@@ -4,13 +4,13 @@ import {StyledButton} from "./style"
 interface IButton {
   action: any,
   disabled: boolean,
-  styled: any,
+  styled: any | undefined,
   text: string
 }
 
 const ButtonApp = (props: IButton) => {
 
-  const {action, disabled, styled, text} = props
+  const {action, disabled, styled = '', text} = props
 
   return (
     <StyledButton 
