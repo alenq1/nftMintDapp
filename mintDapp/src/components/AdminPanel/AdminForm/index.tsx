@@ -64,7 +64,8 @@ const  AdminForm = (props: any) => {
             />
             <Button text={"send"} 
                     action={() =>send (fields.maxSupply, Object.keys(fields)[0])}
-                    disabled={contractDetails.stage !== 0 || isPaused}    
+                    disabled={contractDetails.stage !== 0 || isPaused}
+                    styled={''}
             />
         </Box>
                 
@@ -91,7 +92,8 @@ const  AdminForm = (props: any) => {
                 action={() =>setMaxQuantity (
                     [fields.maxMintPerWalletWhite, fields.maxMintPerWalletPublic ], 'setMaxMintPerWallet'
                 )}
-                disabled={contractDetails.stage !== 0 || isPaused}                
+                disabled={contractDetails.stage !== 0 || isPaused} 
+                styled={''}               
             />
         </Box>
 
@@ -115,7 +117,8 @@ const  AdminForm = (props: any) => {
                 onChange={handleChange}
             />
             <Button text={"send"} action={() =>setMaxQuantity ([fields.mintPriceWhite, fields.mintPricePublic], 'setMintPrices')}
-        disabled={contractDetails.stage !== 0 || isPaused}    
+            disabled={contractDetails.stage !== 0 || isPaused} 
+            styled={''}   
 />
         </Box>
         <Box sx={FormFields}>
@@ -128,8 +131,9 @@ const  AdminForm = (props: any) => {
                 onChange={handleChange}
             />
             <Button text={"send"} action={() =>send (fields[uriAction], uriAction)}
-        disabled={(contractDetails.stage !== 0 && contractDetails.stage !== 3) || isPaused}    
-/>
+                disabled={(contractDetails.stage !== 0 && contractDetails.stage !== 3) || isPaused} 
+                styled={''}
+            />
         </Box>
         <Box sx={FormFields}>
             <TextField
@@ -142,8 +146,9 @@ const  AdminForm = (props: any) => {
                 onChange={handleChange}
             />
             <Button text={"send"} action={() =>send (fields.addAddressToWhitelist, Object.keys(fields)[6])}
-        disabled={contractDetails.stage !== 0 || isPaused}    
-/>
+                disabled={contractDetails.stage !== 0 || isPaused}    
+                styled={''}
+            />
         </Box>      
         <Box sx={FormFields}>
             <TextField
@@ -155,8 +160,9 @@ const  AdminForm = (props: any) => {
                 onChange={handleChange}
             />
             <Button text={"send"} action={() =>send (fields.removeAddressFromWhitelist, Object.keys(fields)[7])}
-        disabled={contractDetails.stage !== 0 || isPaused}    
-/>
+                disabled={contractDetails.stage !== 0 || isPaused}    
+                styled={''}
+            />
         </Box>        
         <Box sx={FormFields}>
             <Typography variant="subtitle1" gutterBottom component="div">
@@ -183,7 +189,8 @@ const  AdminForm = (props: any) => {
                 />
         </Box>
         <Button text={"Withdraw"} action={() =>withdraw()}
-                disabled={contractDetails.stage !== 4 || isPaused}    
+            disabled={contractDetails.stage !== 4 || isPaused}    
+            styled={''}
         />        
     </Box>
   );

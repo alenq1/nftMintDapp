@@ -98,13 +98,13 @@ export  const useMintState = () => {
                     enqueueSnackbar(`transaction confirmed: You sucessfuly minted ${quantity} check on:${result.blockHash} `, {
                         variant: 'success',
                         autoHideDuration: 3000,
-                        actionToast
+                        // actionToast
                     })            
                     // enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
                     // console.log(result, "RESULT")
                 })   
             } 
-            catch (error) {
+            catch (error: any) {
                 // console.log(error.message)
                 const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("method"))
                 // console.log(formatError)                
@@ -131,13 +131,13 @@ export  const useMintState = () => {
                     {
                         variant: 'success',
                         autoHideDuration: 3000,
-                        actionToast
+                        // actionToast
                     })                    
                     // enqueueSnackbar(`check your nft on <a>https://localhost:3000/gallery<a> `, {variant: 'info'})            
                     // console.log(result, "RESULT")
                 })   
             } 
-            catch (error) {
+            catch (error: any) {
                 // console.log(error.message)
                 const formatError = error.message.slice(error.message.indexOf("message"), error.message.indexOf("method"))
                 // console.log(formatError)                

@@ -15,8 +15,8 @@ const Gallery = () => {
   const { 
     loading, 
     gallery, 
-    chainId,
-    contractAddress,
+    // chainId,
+    // contractAddress,
     ownedNft, 
     defaultView, 
     // setDefaultView, 
@@ -61,8 +61,8 @@ const Gallery = () => {
         
         <GalleryGrid
           loading={loading}
-          contractAddress={contractAddress}
-          chainId={chainId}
+          // contractAddress={contractAddress}
+          // chainId={chainId}
           gallery={gallery}
           ownedNft={ownedNft}
           defaultView={defaultView}
