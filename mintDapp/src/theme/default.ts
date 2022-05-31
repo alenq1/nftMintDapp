@@ -50,6 +50,20 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
 
 }
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: false; // removes the `xs` breakpoint
+    sm: false;
+    md: false;
+    lg: false;
+    xl: false;
+    smobile: true,
+    lmobile: true,
+    tablet: true;
+    laptop: true;
+    desktop: true;
+  }
+}
 
 const theme = createTheme({
     palette: {  
@@ -107,6 +121,8 @@ const theme = createTheme({
   });
 
 export {appStyle, theme}
+
+
 
 
 

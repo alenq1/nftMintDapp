@@ -8,7 +8,7 @@ import { CardActionArea, CardActions } from '@mui/material';
 import Button from '../Button'
 import { v4 as uuidv4 } from "uuid";
 
-const NftCard = (props: any) => {
+const NftCard: any = (props: any) => {
 
   // console.log(props.data)
   // console.log(props.data ? true : false)

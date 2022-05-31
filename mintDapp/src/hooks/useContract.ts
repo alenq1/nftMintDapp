@@ -10,7 +10,7 @@ export const useContract = () => {
     // console.log(active, chainId, library?.provider)    
     const [contract, setContract] = useState<any>(null)
 
-    const getContract = (chainId: number | undefined) => {
+    const getContract = (chainId: any) => {
         const signer = library?.getSigner()
         const {address, abi} = getContractAbiAddress(chainId)
         // console.log(address, abi)
@@ -19,7 +19,7 @@ export const useContract = () => {
     }
     
     useEffect(() => {
-        if((active && chainId !== 0) && contractNetworks.includes(chainId)){
+        if((active && chainId !== 0) && contractNetworks.includes(chainId ?? 0)){
             getContract(chainId)            
         }
         // console.log(contract)

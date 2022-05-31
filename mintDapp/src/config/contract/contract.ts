@@ -30,8 +30,9 @@ export const chainMiscData =(chainId: Number,  address: string, indexToOpen: Num
     return chainData
 }
 
-export const getContractAbiAddress = (chainId: Number) => {
-    const { address, abi} = contractJson[chainId][0].contracts[contractFileName]
+export const getContractAbiAddress = (chainId: any) => {
+    const contractChain: any[] = contractJson[chainId]
+    const { address, abi} = contractChain[0].contracts[contractFileName]
     // console.log(address, "ADDRRESS ")
     // console.log(abi, "ABI ")// 
     return{

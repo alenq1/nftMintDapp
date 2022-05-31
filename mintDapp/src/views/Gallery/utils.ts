@@ -56,7 +56,7 @@ export const useGalleryState = () => {
                 // console.log(formatURI)
                 await axios.get(formatURI)
                 .then((response)=>{
-                    const miscData: any = chainMiscData(chainId, contractAddress, index)
+                    const miscData: any = chainMiscData(chainId ?? 0, contractAddress, index)
                     response.data.owner = ownerOf
                     response.data.indexToOpen = index - 1
                     response.data.opensea = miscData.opensea
