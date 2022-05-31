@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
-import { useContract, contractAddress } from "../../hooks/useContract";
+import { useContract } from "../../hooks/useContract";
 import { useSnackbar } from 'notistack';
 import {ethers} from "ethers"
 
@@ -140,7 +140,7 @@ export const useAdminCollectionState = () => {
                 console.log(result, "RESULT")
             })    
         } 
-        catch (error) {
+        catch (error: any) {
             enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
         }
     
@@ -158,7 +158,7 @@ export const useAdminCollectionState = () => {
                 // console.log(result, "RESULT")
             })    
         } 
-        catch (error) {
+        catch (error: any) {
             enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
         }        
     }
@@ -186,7 +186,7 @@ export const useAdminCollectionState = () => {
                 // console.log(result, "RESULT")
             })    
         } 
-        catch (error) {
+        catch (error: any) {
             enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
         }
     }
@@ -252,7 +252,7 @@ export const useAdminCollectionState = () => {
                 // console.log(result, "RESULT")
             })    
         } 
-        catch (error) {
+        catch (error: any) {
             console.log(`ERROR ${action}`, error.message)
             enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
         }        
@@ -265,7 +265,7 @@ export const useAdminCollectionState = () => {
             
             const contractDetailsTemp= getContractDetails(contract)    
             // console.log( await contractDetailsTemp)    
-            contractDetailsTemp.then(response => {
+            contractDetailsTemp.then((response: any) => {
                 response.address = contract.address
                 setContractDetails(response)
                 // console.log(response)
