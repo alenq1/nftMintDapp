@@ -62,9 +62,14 @@ const NftCard = (props: any) => {
         </CardActionArea>          
         <CardActions sx={cardButtons}>
           <Button   text={"View on Explorer"} action={()=> {
-            window.open(explorer, '_blank', 'noopener,noreferrer')
-            }}/>                    
-          <Button text={"More Details"} action={() => handleClickOpen(indexToOpen)}/>            
+            window.open(explorer, '_blank', 'noopener,noreferrer')}}
+            disabled={false}
+            styled={''}
+            />                    
+          <Button text={"More Details"} action={() => handleClickOpen(indexToOpen)}
+            disabled={false}
+            styled={''}
+          />            
         </CardActions>
       </Card>
     )    

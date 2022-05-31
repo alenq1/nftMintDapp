@@ -10,7 +10,7 @@ interface IButton {
 
 const ButtonApp = (props: IButton) => {
 
-  const {action, disabled, styled = '', text} = props
+  const {action, disabled, styled, text} = props
 
   return (
     <StyledButton 

@@ -20,11 +20,19 @@ const WalletInfo = () => {
       <Box sx={StyledWalletInfo}>
       {active ?
         <>
-          <Button text={ `${address} Balance: ${balance}`} styled={WalletButton} action={connect}/>    
-          <Button text={"x"} action={disconnect} styled={DisconnectButton}/>    
+          <Button text={ `${address} Balance: ${balance}`} styled={WalletButton} action={connect}
+            disabled={false}
+          />    
+          <Button text={"x"} action={disconnect} styled={DisconnectButton}
+            disabled={false}
+          />    
         </>
       :
-        <Button text={ isUnSupportedChain? "Unsupported Network" : "connect"} styled={WalletButton} action={connect}/>    
+        <Button text={ isUnSupportedChain? "Unsupported Network" : "connect"} 
+            styled={WalletButton} 
+            action={connect}
+            disabled={false}        
+        />    
       }   
       </Box>
   )  

@@ -1,4 +1,4 @@
-import {ReactComponent as Logo} from '../assets/svgs/logo.svg';
+import Logo from '../assets/svgs/logo.svg';
 import BackgroundPix from '../assets/img/PolyGrid.png'
 
 export const dappConfig = {

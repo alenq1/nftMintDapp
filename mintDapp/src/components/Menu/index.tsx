@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
-const MenuLinks = ({smallView}: boolean) => {
+const MenuLinks = ({smallView}: any) => {
   
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

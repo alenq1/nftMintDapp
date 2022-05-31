@@ -82,7 +82,11 @@ const MintSection = () => {
             color={"green"}
             disabled={!contract || isSoldOut || !allowToMint}
         />
-        <Button text={mintButton} action={mint} disabled={!contract || isSoldOut || !allowToMint}/>
+        <Button text={mintButton} 
+          action={mint} 
+          disabled={!contract || isSoldOut || !allowToMint}
+          styled={''}
+          />
       </CardActions>
   </Card>
 );

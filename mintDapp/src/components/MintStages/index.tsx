@@ -15,7 +15,6 @@ import Button from '../Button';
 import { ColorlibStepIconRoot, ColorlibConnector, 
   MintStageContainer, MintStagesTitle, StyledStepper
 } from './style'
-import { createNextState } from '@reduxjs/toolkit';
 import { useSnackbar } from 'notistack';
 import {useMintStages, steps, ColorlibStepIcon } from './utils'
 
@@ -51,6 +50,7 @@ export default function MintStages({isAdmin}: any) {
       isAdmin &&
       <Button text={"Go to Next Stage"} action={() =>nextStage()}
         disabled={stage >= 4 || isPaused}
+        styled={''}
       />
     }
     

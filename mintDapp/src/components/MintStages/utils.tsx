@@ -72,7 +72,7 @@ export  const useMintStages = () => {
                 // console.log(result, "RESULT")
             })    
         } 
-        catch (error) {
+        catch (error: any) {
             // console.log(`ERROR nextStage`, error.message)
             enqueueSnackbar(`error: ${error?.message}`, {variant: 'error'})
         }
