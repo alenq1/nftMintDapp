@@ -6,8 +6,15 @@ import svgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    events: require.resolve('events'),
+  },
   plugins: [react(), svgr()],
   define: {
     'process.env': {}
+  },
+  build: {
+    target: 'esnext'
   }
+ 
 })

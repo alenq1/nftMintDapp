@@ -16,6 +16,7 @@
     "@web3-react/types": "^6.0.7",
     "axios": "^0.27.2",
     "ethers": "^5.6.5",
+    "events": "^3.3.0",
     "notistack": "^2.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
