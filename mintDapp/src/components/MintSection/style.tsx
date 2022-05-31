@@ -1,9 +1,9 @@
 import { alpha, styled } from '@mui/material/styles';
-import Invader from '../../assets/svgs/logo.svg';
-import Invader2 from '../../assets/svgs/invader2.svg';
-import Invader3 from '../../assets/svgs/invader3.svg';
-import Invader4 from '../../assets/svgs/invader4.svg';
-import Invader5 from '../../assets/svgs/invader5.svg';
+import {ReactComponent as Invader} from '../../assets/svgs/logo.svg';
+import {ReactComponent as Invader2} from '../../assets/svgs/invader2.svg';
+import {ReactComponent as Invader3} from '../../assets/svgs/invader3.svg';
+import {ReactComponent as Invader4} from '../../assets/svgs/invader4.svg';
+import {ReactComponent as Invader5} from '../../assets/svgs/invader5.svg';
 
 export const contentArray = [
   <Invader/>,

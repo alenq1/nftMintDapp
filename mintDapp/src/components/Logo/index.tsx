@@ -13,7 +13,7 @@ const Logo = ({title, logoImg}: ILogo) => {
   return( 
   <Box sx={StyledLogo}>
    <Link to={"/"}>
-      {logoImg()}
+      {logoImg}
       <h2>{title}</h2> 
     </Link>
   </Box>

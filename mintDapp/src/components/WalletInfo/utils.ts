@@ -2,7 +2,6 @@
 import { useCallback, useState, useEffect } from 'react'
 import {  useWeb3React, UnsupportedChainIdError } from "@web3-react/core";
 import { connector } from "../../config/connectors/provider";
-import { parse } from 'url';
 import {ethers} from "ethers"
 
 

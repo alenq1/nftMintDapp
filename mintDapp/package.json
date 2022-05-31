@@ -22,6 +22,7 @@
     "react-material-ui-carousel": "^3.3.3",
     "react-router-dom": "^6.3.0",
     "uuid": "^8.3.2",
+    "vite-plugin-react-svg": "^0.2.0",
     "vite-plugin-svgr": "^2.1.0"
   },
   "devDependencies": {
