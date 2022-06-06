@@ -39,9 +39,9 @@ function WalletConnector({ children }: any) {
     
   }, [activate, account, chainId])
   
-  if (loading) {
-    return <>Loading</>  
-  }
+  // if (!loading) {
+  //   return <>Loading</>  
+  // }
     return children  
 }
 
