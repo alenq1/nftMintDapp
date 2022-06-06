@@ -95,8 +95,7 @@ const theme = createTheme({
         '"SquareDance00"'
 
       ].join(','),
-      fontSize: 10,
-      color: 'white'
+      fontSize: 10
     },
     breakpoints: {
       values: {
