@@ -22,13 +22,13 @@ This dapp is based on a State Pattern design on solidity, the contract has stage
   - Set an url for unreveal metadata before start the mint
   - Add or remove addresses allowed to mint in whitelist phase
 ## Phase 2
-    - Only allow mint addresses in the whitelist with a max number allowed
+  - Only allow mint addresses in the whitelist with a max number allowed
 ## Phase 3
-    - Allow everyone mint only restricted with a max mint 
+  - Allow everyone mint only restricted with a max mint 
 ## Phase 4
-    - After mint has finished, it can be setted a new url for reveal the final metadata for collection
+  - After mint has finished, it can be setted a new url for reveal the final metadata for collection
 ## Phase 5
-    - The contract owner finally can withdraw funds from the mint contract
+  - The contract owner finally can withdraw funds from the mint contract
 
 
 # Other
