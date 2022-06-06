@@ -72,6 +72,11 @@ export const StyledStepper = {
   overflowX: "auto",
 }
 
+export const SelectedStage = {
+  color: 'white',
+  textShadow: '2px 2px 8px #000'
+}
+
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {

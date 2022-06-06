@@ -3,7 +3,7 @@ import { Box} from '@mui/system';
 import { Link } from "react-router-dom";
 import {StyledMenu} from './style';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
@@ -32,7 +32,7 @@ const MenuLinks = ({smallView}: any) => {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          <MenuIcon/>
+          <MenuOpenIcon sx={{fill: 'white'}} fontSize='large'/>
         </IconButton>
         <Menu
           id="basic-menu"

@@ -5,7 +5,7 @@
       "chainId": "4",
       "contracts": {
         "NftMintStage": {
-          "address": "0x626A041285A0BB334f3f00eAe695436d0d32c167",
+          "address": "0x708525aC34dd7D5887Ba630362C37C1Bd0641Acf",
           "abi": [
             {
               "inputs": [
@@ -26,22 +26,22 @@
                 },
                 {
                   "internalType": "uint256",
-                  "name": "maxMintPerWalletPublic_",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
                   "name": "maxMintPerWalletWhite_",
                   "type": "uint256"
                 },
                 {
                   "internalType": "uint256",
-                  "name": "mintPricePublic_",
+                  "name": "maxMintPerWalletPublic_",
                   "type": "uint256"
                 },
                 {
                   "internalType": "uint256",
                   "name": "mintPriceWhite_",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "mintPricePublic_",
                   "type": "uint256"
                 }
               ],
@@ -940,7 +940,7 @@
       "chainId": "80001",
       "contracts": {
         "NftMintStage": {
-          "address": "0xBC8E37bAfF05e62739BdA4b8d2187e39f105eDaB",
+          "address": "0x3e7B26dC5Fe5cC7409101857ADc5D01472a5A40D",
           "abi": [
             {
               "inputs": [
@@ -961,22 +961,22 @@
                 },
                 {
                   "internalType": "uint256",
-                  "name": "maxMintPerWalletPublic_",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
                   "name": "maxMintPerWalletWhite_",
                   "type": "uint256"
                 },
                 {
                   "internalType": "uint256",
-                  "name": "mintPricePublic_",
+                  "name": "maxMintPerWalletPublic_",
                   "type": "uint256"
                 },
                 {
                   "internalType": "uint256",
                   "name": "mintPriceWhite_",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "mintPricePublic_",
                   "type": "uint256"
                 }
               ],

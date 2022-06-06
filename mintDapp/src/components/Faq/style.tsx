@@ -64,6 +64,7 @@ export const FaqContainer = {
   flexDirection: "column",
   alignItems: "center", 
   background: dappConfig.projectInfoBg,
+  
 }
 
 
@@ -84,7 +85,8 @@ export const Accordion = styled((props: AccordionProps) => (
       backdropFilter: "blur(3.6px)",
       WebkitBackdropFilter: "blur(3.6px)",
       border: "1px solid rgba(255, 255, 255, 0.21)",
-      padding: 15
+      padding: 15,
+      color: 'white'
 
   }));
 

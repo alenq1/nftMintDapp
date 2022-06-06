@@ -13,7 +13,7 @@ import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import { StepIconProps } from '@mui/material/StepIcon';
 import Button from '../Button';
 import { ColorlibStepIconRoot, ColorlibConnector, 
-  MintStageContainer, MintStagesTitle, StyledStepper
+  MintStageContainer, MintStagesTitle, StyledStepper, SelectedStage
 } from './style'
 import { useSnackbar } from 'notistack';
 import {useMintStages, steps, ColorlibStepIcon } from './utils'
@@ -37,7 +37,7 @@ export default function MintStages({isAdmin}: any) {
             <StepLabel StepIconComponent={ColorlibStepIcon}>{
               index === stage ?              
 
-              <h3>{label}</h3>
+              <h3 style={SelectedStage}>{label}</h3>
               :
               label
               

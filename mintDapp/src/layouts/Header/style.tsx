@@ -7,13 +7,13 @@ export const StyledHeader = {
   justifyContent: "space-between",
   alignItems: "center",
   padding: "1rem 1.5rem",
-  color: 'text.primary',
+  color: 'white',
   position: "relative",
   flexShrink: 0,
   
   "& a": {
     textDecoration: "none",
-    color: "black",
+    color: "white",
   },
   gap:2,
 

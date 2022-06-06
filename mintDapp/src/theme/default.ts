@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import {dappConfig} from '../config/dappConfig'
 
-// import Image from '../assets/background.svg';
+import Image from '../assets/img/space1.jpg'
 
 
 const appStyle = {   
@@ -34,7 +34,10 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
 // backgroundSize: "cover",
 
 /// ***********WITH IMAGE
-// backgroundImage: `url(${Image})`,
+backgroundImage: `url(${Image})`,
+backgroundPosition: 'center',
+backgroundRepeat: 'no-repeat',
+backgroundAttachment: 'fixed',
 // filter: "blur(1px)",  
     //overflow: "hidden"
   // width: "100%",
@@ -46,6 +49,7 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
   flexDirection: "column",
   justifyContent: "flex-start",
   padding: 0,
+  color: 'white'
 
 
 }
@@ -91,7 +95,8 @@ const theme = createTheme({
         '"SquareDance00"'
 
       ].join(','),
-      fontSize: 10
+      fontSize: 10,
+      color: 'white'
     },
     breakpoints: {
       values: {
