@@ -26,6 +26,7 @@ export const DisconnectButton = {
 export const WalletButton = {
   background: "green",
     fontSize: ".75rem",
+    textShadow: '1px 1px 8px #000',
     fontWeight: 800,
     padding: "0.3em 2em 0.3em 1em",
     bordeRadius: "10%",

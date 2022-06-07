@@ -25,7 +25,7 @@ const RoadMap = () => {
     } = RoadMapContent
 
     return (
-        <Container sx={RoadMapContainer}>
+        <Box sx={RoadMapContainer}>
             <Box>
                 <h1>{title}</h1>
             </Box>
@@ -45,7 +45,7 @@ const RoadMap = () => {
                     <Box>{fourthDescription}</Box>
                 </Box>
             </Box>
-        </Container>
+        </Box>
     )
 }
 

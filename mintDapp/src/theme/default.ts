@@ -1,16 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 import {dappConfig} from '../config/dappConfig'
 
-import Image from '../assets/img/space1.jpg'
+
 
 
 const appStyle = {   
   
 //********backgrounds WITH GRADIENTS
 
-background: `${dappConfig.mainBackground}`,
+// background: `${dappConfig.mainBackground}`,
 // background: `gray`,
-backgroundBlendMode: "screen, overlay, hard-light, normal",
+// backgroundBlendMode: "screen, overlay, hard-light, normal",
 
 // background: "linear-gradient(115deg, #000000 0%, #00C508 55%, #000000 100%), linear-gradient(115deg, #0057FF 0%, #020077 100%), conic-gradient(from 110deg at -5% 35%, #000000 0deg, #FAFF00 360deg), conic-gradient(from 220deg at 30% 30%, #FF0000 0deg, #0000FF 220deg, #240060 360deg), conic-gradient(from 235deg at 60% 35%, #0089D7 0deg, #0000FF 180deg, #240060 360deg)",
 // backgroundBlendMode: "soft-light, soft-light, overlay, screen, normal",
@@ -34,24 +34,19 @@ backgroundBlendMode: "screen, overlay, hard-light, normal",
 // backgroundSize: "cover",
 
 /// ***********WITH IMAGE
-backgroundImage: `url(${Image})`,
-backgroundPosition: 'center',
-backgroundRepeat: 'no-repeat',
-backgroundAttachment: 'fixed',
-// filter: "blur(1px)",  
-    //overflow: "hidden"
-  // width: "100%",
-  // height: "100vh",
-  // gap: 1,
-  // overflow: 'auto',
+  backgroundImage: dappConfig.mainBackground,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundBlendMode: "darken",
+  opacity: 2,
   minHeight: '100vh',
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
   padding: 0,
-  color: 'white'
-
-
+  color: 'white',
+  textShadow: '2px 2px 8px #000'
 }
 
 declare module '@mui/material/styles' {

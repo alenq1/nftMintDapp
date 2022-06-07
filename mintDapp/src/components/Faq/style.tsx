@@ -64,6 +64,7 @@ export const FaqContainer = {
   flexDirection: "column",
   alignItems: "center", 
   background: dappConfig.projectInfoBg,
+  backgroundBlendMode: "darken"
   
 }
 

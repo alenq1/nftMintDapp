@@ -58,9 +58,13 @@ export const StyledAdminInfo = {
 //   alignItems: "center",
 //   gap: 5,
 
+  '& h2':{
+    textShadow: '1px 1px 8px #FFF'
+  },
+
   '& h4':{
     color: "whitesmoke"
-}
+  }
 }
 
 
@@ -85,8 +89,11 @@ export const FormFields = {
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
+  
   // alignItems: "center"
-
+  '& h6':{
+    textShadow: '1px 1px 8px #FFF',
+  },
   '& div':{
       width: "100%"
   },

@@ -165,7 +165,7 @@ const  AdminForm = (props: any) => {
             />
         </Box>        
         <Box sx={FormFields}>
-            <Typography variant="subtitle1" gutterBottom component="div">
+            <Typography variant="h6" gutterBottom >
                 enable Burn
             </Typography>
             <Switch checked={!!contractDetails.burnEnabled}
@@ -177,7 +177,7 @@ const  AdminForm = (props: any) => {
             />
         </Box>
         <Box sx={FormFields}>
-            <Typography variant="subtitle1" gutterBottom component="div">
+            <Typography variant="h6" gutterBottom >
                 Pause Contract
                 </Typography>
                 <Switch checked={!!contractDetails.isPaused}

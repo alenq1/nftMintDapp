@@ -14,7 +14,7 @@ export const RoadMapContent = {
 
 
 export const RoadMapContainer = {
-    padding: 0,
+    padding: "0px 50px",
     margin: "0px 0px 100px 0px" ,
     height: "100%",
     width: "100%",
@@ -26,11 +26,11 @@ export const RoadMapContainer = {
     maxWidth: {
         // lmobile: 200,
         // tablet: 450,
-        laptop: 800,
+        laptop: 1000,
 
     },
     '& h1':{
-        margin: "100px 0px"
+        margin: "100px 0px 0px 0px"
     }
 }
 
@@ -58,7 +58,7 @@ export const RoadMapLeft: any = {
     height: "auto",      
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center", 
 
     '& div':{
