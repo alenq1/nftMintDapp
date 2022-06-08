@@ -72,6 +72,15 @@ export const StyledStepper = {
   overflowX: "auto",
 }
 
+export const StepText = {
+  '& span':{
+    '& .Mui-completed':{
+      color: 'whitesmoke'
+    }
+  }
+}
+
+
 export const SelectedStage = {
   color: 'white',
   textShadow: '2px 2px 8px #000'
@@ -89,6 +98,7 @@ export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
+    
     [`& .${stepConnectorClasses.line}`]: {
       backgroundImage:
       'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,121,9,1) 35%, rgba(161,255,0,1) 100%)',
@@ -102,6 +112,8 @@ export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
     borderRadius: 1,
   },
+  
+
 }));
 
 export const ColorlibStepIconRoot = styled('div')<{
@@ -126,5 +138,9 @@ export const ColorlibStepIconRoot = styled('div')<{
   ...(ownerState.completed && {
     backgroundImage:
       'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,121,9,1) 35%, rgba(161,255,0,1) 100%)',      
+      // color: 'white'  
   }),
+  
+  
+  
 }));
