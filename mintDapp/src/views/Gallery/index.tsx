@@ -5,6 +5,7 @@ import NftDetail from '../../components/NftDetail';
 
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import CircularProgress from '@mui/material/CircularProgress';
 import {useGalleryState} from './utils';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -52,9 +53,10 @@ const Gallery = () => {
       { 
         loading === 'loading' ?
         <Box sx={StyledSkeleton}>
+          {/* <Skeleton variant="rectangular" width={310} height={318} />
           <Skeleton variant="rectangular" width={310} height={318} />
-          <Skeleton variant="rectangular" width={310} height={318} />
-          <Skeleton variant="rectangular" width={310} height={318} />
+          <Skeleton variant="rectangular" width={310} height={318} /> */}
+          <CircularProgress size={150} color={'success'}/>
         </Box>
         :
         loading === 'loaded' ?

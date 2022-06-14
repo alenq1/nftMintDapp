@@ -13,7 +13,7 @@ export const projectInfoContent = {
 
 export const OtherDescriptions = {
     margin: "20px 0px",
-    padding: "10px",
+    padding: "75px 10px 10px 10px",
     height: "100%",    
     width: "100%",
     display: "flex",
@@ -24,8 +24,11 @@ export const OtherDescriptions = {
     },
     alignItems: "center",
     justifyContent: "center",
-    background: dappConfig.projectInfoBg,
-    backgroundSize: "contain",
+    backgroundImage: dappConfig.projectInfoBg,
+    backgroundSize: {
+        lmobile: "cover",
+        tablet: "contain"
+    },
 
     '& img':{
         marginTop: {

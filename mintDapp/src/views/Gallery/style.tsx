@@ -66,7 +66,8 @@ export const StyledSkeleton = {
   flexWrap: "wrap",
   alignItems: "center",
   justifyContent: "space-around",
-  gap: 10
+  gap: 10,
+  // color: "green"
   
 
 }
